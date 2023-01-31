@@ -1,4 +1,4 @@
-const withTwin = require('./withTwin.js')
+const withTwin = require('./twin.config.js')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = withTwin({
