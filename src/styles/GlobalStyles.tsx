@@ -4,8 +4,11 @@ import tw, { GlobalStyles as BaseStyles } from 'twin.macro'
 
 const CustomStyles = createGlobalStyle({
   body: {
-    ...tw``,
+    ...tw`mx-auto max-w-screen-2xl text-black`,
   },
+  section: {
+    ...tw`mx-auto max-w-screen-xl`
+  }
 })
 
 const GlobalStyles = () => (
