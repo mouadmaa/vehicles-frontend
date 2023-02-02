@@ -35,13 +35,16 @@ module.exports = {
         94: '#F8E5E7',
         92: '#F4DCDF',
         90: '#F4D5D9',
-      }
+      },
     },
     extend: {
       gridTemplateColumns: {
-        'statistic': 'repeat(auto-fit, minmax(120px, 1fr))',
-        'vehicles': 'repeat(auto-fit, minmax(320px, 1fr))',
-      }
+        statistic: 'repeat(auto-fit, minmax(120px, 1fr))',
+        vehicles: 'repeat(auto-fit, minmax(320px, 1fr))',
+      },
+      scale: {
+        103: '1.03',
+      },
     },
   },
   plugins: [],

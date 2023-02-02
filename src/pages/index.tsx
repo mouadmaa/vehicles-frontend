@@ -1,8 +1,7 @@
 import { NextPage } from 'next'
-import 'twin.macro'
 
 const Home: NextPage = () => {
-  return <div></div>
+  return <div />
 }
 
 export default Home
