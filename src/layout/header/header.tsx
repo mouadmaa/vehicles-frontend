@@ -5,6 +5,7 @@ import Sign from '@/layout/header/sign'
 import Burger from '@/layout/header/burger'
 import { StyledHeader } from '@/styles/layout/header/header'
 import Menu from '@/layout/header/menu'
+import Backdrop from '@/components/ui/backdrop'
 
 const Header: FC = () => {
   const headerRef = useRef(null)
@@ -18,8 +19,8 @@ const Header: FC = () => {
         <Sign />
         <Burger showMenu={showMenu} toggleMenu={() => setShowMenu(!showMenu)} />
       </div>
-
-      <Menu headerRef={headerRef} />
+      <Menu showMenu={showMenu} headerRef={headerRef} />
+      <Backdrop />
     </StyledHeader>
   )
 }

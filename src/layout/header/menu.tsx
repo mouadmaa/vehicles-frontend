@@ -5,24 +5,24 @@ import { StyledMenu } from '@/styles/layout/header/menu'
 import Button from '@/components/ui/button'
 
 interface MenuProps {
+  showMenu: boolean
   headerRef: RefObject<HTMLHeadElement> | null
 }
 
 const Menu: FC<MenuProps> = props => {
-  const { headerRef } = props
+  const { showMenu, headerRef } = props
 
   const [menuHeight, setMenuHeight] = useState(80)
 
   useEffect(() => {
-    setMenuHeight(headerRef?.current?.clientHeight || 80)
-    console.log(headerRef?.current?.clientHeight)
-  }, [headerRef])
+    setMenuHeight(headerRef?.current?.clientHeight || menuHeight)
+  }, [menuHeight, headerRef])
 
   return (
-    <StyledMenu height={menuHeight}>
+    <StyledMenu height={menuHeight} showMenu={showMenu}>
       <ul>
         {LINKS.map(link => (
-          <li key={link.path} className="group">
+          <li key={link.path}>
             <NavLink {...link} />
           </li>
         ))}
