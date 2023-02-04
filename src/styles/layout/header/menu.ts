@@ -20,13 +20,9 @@ export const StyledMenu = styled.div(
           }
         }
       }
-
-      > div:last-child {
-        ${tw`flex w-full flex-col gap-y-4`}
-      }
     `,
     showMenu
-      ? [tw`translate-x-0 opacity-100 visible`]
-      : [tw`-translate-x-full opacity-0 invisible`],
+      ? [tw`translate-x-0 opacity-100`]
+      : [tw`translate-x-full opacity-0`],
   ],
 )

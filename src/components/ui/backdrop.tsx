@@ -1,8 +1,14 @@
 import { FC } from 'react'
 import { StyledBackdrop } from '@/styles/components/ui/backdrop'
 
-const Backdrop: FC = () => {
-  return <StyledBackdrop />
+interface BackdropProps {
+  show: boolean
+  hide: () => void
+}
+
+const Backdrop: FC<BackdropProps> = props => {
+  const { show, hide } = props
+  return <StyledBackdrop show={show} onClick={hide} />
 }
 
 export default Backdrop
