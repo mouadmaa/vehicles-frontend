@@ -5,7 +5,7 @@ interface StyledMenuProps {
   showMenu: boolean
 }
 
-export const StyledMenu = styled.div(
+export const StyledMenu = styled.section(
   ({ height, showMenu }: StyledMenuProps) => [
     tw`absolute right-0 z-50 flex w-full max-w-sm flex-col items-center justify-between border-l-2 border-t-2 bg-gray-50 p-8 shadow transition-all duration-500`,
     css`
@@ -22,7 +22,7 @@ export const StyledMenu = styled.div(
       }
     `,
     showMenu
-      ? [tw`translate-x-0 opacity-100`]
-      : [tw`translate-x-full opacity-0`],
+      ? [tw`translate-x-0 opacity-100 visible`]
+      : [tw`translate-x-full opacity-0 invisible`],
   ],
 )

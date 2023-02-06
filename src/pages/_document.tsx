@@ -16,8 +16,7 @@ class MyDocument extends Document {
     try {
       ctx.renderPage = () =>
         originalRenderPage({
-          enhanceApp: (App) => (props) =>
-            sheet.collectStyles(<App {...props} />),
+          enhanceApp: App => props => sheet.collectStyles(<App {...props} />),
         })
       const initialProps = await Document.getInitialProps(ctx)
 
@@ -39,13 +38,9 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <meta
-            name='viewport'
-            content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, maximum-scale=5, viewport-fit=cover'
-          />
           <link
-            href='https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap'
-            rel='stylesheet'
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+            rel="stylesheet"
           />
         </Head>
         <body>

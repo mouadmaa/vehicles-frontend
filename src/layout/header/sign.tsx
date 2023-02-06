@@ -11,8 +11,8 @@ const Sign: FC<SignProps> = props => {
 
   return (
     <StyledSign isOnMenu={isOnMenu}>
-      <Button variant="Primary">Sign in</Button>
-      <Button variant="Secondary">Sign up</Button>
+      <Button variant="Secondary">Sign in</Button>
+      <Button variant="Primary">Sign up</Button>
     </StyledSign>
   )
 }

@@ -3,12 +3,12 @@ import { StyledBackdrop } from '@/styles/components/ui/backdrop'
 
 interface BackdropProps {
   show: boolean
-  hide: () => void
+  onHide: () => void
 }
 
 const Backdrop: FC<BackdropProps> = props => {
-  const { show, hide } = props
-  return <StyledBackdrop show={show} onClick={hide} />
+  const { show, onHide } = props
+  return <StyledBackdrop show={show} onClick={onHide} />
 }
 
 export default Backdrop

@@ -26,11 +26,11 @@ const Header: FC = () => {
           <Logo />
           <Nav />
           <Sign />
-          <Burger showMenu={showMenu} toggleMenu={handleToggleMenu} />
+          <Burger showMenu={showMenu} onToggleMenu={handleToggleMenu} />
         </div>
         <Menu headerRef={headerRef} show={showMenu} />
       </StyledHeader>
-      <Backdrop show={showMenu} hide={handleToggleMenu} />
+      <Backdrop show={showMenu} onHide={handleToggleMenu} />
     </Fragment>
   )
 }

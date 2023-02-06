@@ -13,7 +13,7 @@ const Layout: FC<LayoutProps> = props => {
     <Fragment>
       <GlobalStyles />
       <Header />
-      {children}
+      <main>{children}</main>
     </Fragment>
   )
 }
