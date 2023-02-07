@@ -1,10 +1,10 @@
 import tw, { css, styled } from 'twin.macro'
 
 export const StyledHeroSearch = styled.article(() => [
-  // tw`mx-auto w-min overflow-hidden rounded-lg text-sm shadow md:mx-0 lg:text-md`,
+  tw`mx-auto md:mx-0 w-min`,
   css`
     > div:first-child {
-      ${tw`w-min flex justify-center rounded-tl-lg rounded-tr-lg bg-white shadow-md md:w-min`}
+      ${tw`w-full md:w-min flex justify-center rounded-tl-lg rounded-tr-lg bg-white shadow-md md:w-min`}
     }
   }
 

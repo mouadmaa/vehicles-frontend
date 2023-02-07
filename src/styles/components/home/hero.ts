@@ -1,7 +1,7 @@
 import tw, { css, styled } from 'twin.macro'
 
 export const StyledHero = styled.section(() => [
-  tw`relative max-w-screen-2xl h-[850px] py-16 px-2 sm:px-4 md:px-8 space-y-10`,
+  tw`relative max-w-screen-2xl h-[850px] py-16 px-2 sm:px-4 md:px-8`,
   css`
     > div:nth-of-type(1) {
       ${tw`absolute top-0 right-0 -z-10 h-full w-1/2 hidden md:block overflow-hidden`}
@@ -12,7 +12,7 @@ export const StyledHero = styled.section(() => [
     }
 
     > div:nth-of-type(2) {
-      ${tw`mx-auto max-w-screen-xl space-y-12 mt-0`}
+      ${tw`mx-auto max-w-screen-xl flex flex-col justify-around h-full`}
 
       > div:first-child {
         ${tw`w-full space-y-8 text-center md:w-1/2 md:text-start`}
