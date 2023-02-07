@@ -13,7 +13,7 @@ const Hero: FC = () => {
           width={750}
           height={850}
           quality={100}
-          priority
+          priority={true}
         />
       </div>
 
@@ -41,9 +41,9 @@ const Hero: FC = () => {
             </div>
           </div>
         </div>
-      </div>
 
-      <HeroSearch />
+        <HeroSearch />
+      </div>
     </StyledHero>
   )
 }

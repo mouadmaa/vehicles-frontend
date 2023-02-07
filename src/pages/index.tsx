@@ -7,7 +7,7 @@ const Home: NextPage = () => {
   return (
     <Fragment>
       <Hero />
-      <section tw="h-screen"></section>
+      <section tw="h-screen bg-white"></section>
     </Fragment>
   )
 }

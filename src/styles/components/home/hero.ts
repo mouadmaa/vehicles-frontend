@@ -12,7 +12,7 @@ export const StyledHero = styled.section(() => [
     }
 
     > div:nth-of-type(2) {
-      ${tw`mx-auto max-w-screen-xl`}
+      ${tw`mx-auto max-w-screen-xl space-y-12 mt-0`}
 
       > div:first-child {
         ${tw`w-full space-y-8 text-center md:w-1/2 md:text-start`}
