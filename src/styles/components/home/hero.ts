@@ -1,10 +1,10 @@
 import tw, { css, styled } from 'twin.macro'
 
 export const StyledHero = styled.section(() => [
-  tw`relative max-w-screen-2xl h-[850px] py-16 px-2 sm:px-4 md:px-8`,
+  tw`relative max-w-screen-2xl h-[700px] lg:h-[850px] pt-4 xl:pt-8 pb-16 px-2 sm:px-4 md:px-8`,
   css`
     > div:nth-of-type(1) {
-      ${tw`absolute top-0 right-0 -z-10 h-full w-1/2 hidden md:block overflow-hidden`}
+      ${tw`absolute top-0 right-0 -z-10 h-full w-2/3 xl:w-1/2 hidden lg:block overflow-hidden`}
 
       img {
         ${tw`h-auto w-full object-cover`}
@@ -15,7 +15,7 @@ export const StyledHero = styled.section(() => [
       ${tw`mx-auto max-w-screen-xl flex flex-col justify-around h-full`}
 
       > div:first-child {
-        ${tw`w-full space-y-8 text-center md:w-1/2 md:text-start`}
+        ${tw`w-full space-y-10 text-center md:w-1/2 md:text-start`}
 
         h1 {
           ${tw`text-gray-900 whitespace-normal sm:whitespace-nowrap font-semibold leading-[1.2]`}
@@ -39,6 +39,19 @@ export const StyledHero = styled.section(() => [
               ${tw`text-gray-500`}
             }
           }
+        }
+      }
+    }
+
+    > div:nth-of-type(3) {
+        ${tw`absolute top-[14%] right-[7%] hidden md:block`}
+
+        svg:nth-of-type(1) {
+          ${tw`absolute -top-14 -translate-x-4`}
+        }
+
+        svg:nth-of-type(3) {
+          ${tw`translate-x-1 -translate-y-7`}
         }
       }
     }
