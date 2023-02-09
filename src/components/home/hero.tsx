@@ -2,6 +2,7 @@ import { FC } from 'react'
 import Image from 'next/image'
 import { StyledHero } from '@/styles/components/home/hero'
 import HeroSearch from '@/components/home/hero-search'
+import VehicleCard from '@/components/vehicles/vehicle-card'
 
 const Hero: FC = () => {
   return (
@@ -49,6 +50,10 @@ const Hero: FC = () => {
         <StartSvg />
         <LineSvg />
         <EndSvg />
+      </div>
+
+      <div>
+        <VehicleCard />
       </div>
     </StyledHero>
   )

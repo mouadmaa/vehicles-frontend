@@ -44,7 +44,7 @@ export const StyledHero = styled.section(() => [
     }
 
     > div:nth-of-type(3) {
-        ${tw`absolute top-[14%] right-[7%] hidden md:block`}
+        ${tw`absolute top-[18%] right-[7%] hidden lg:block`}
 
         svg:nth-of-type(1) {
           ${tw`absolute -top-14 -translate-x-4`}
@@ -55,5 +55,9 @@ export const StyledHero = styled.section(() => [
         }
       }
     }
+  
+    > div:nth-of-type(4) {
+        ${tw`absolute top-[10%] right-[16%] hidden md:top-[20%] md:block xl:top-[11%] xl:right-[27%]`}
+      }
   `,
 ])
