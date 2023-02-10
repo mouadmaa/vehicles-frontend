@@ -27,7 +27,7 @@ export const StyledVehicleCard = styled.section(() => [
           ${tw`absolute top-0 right-0 flex translate-x-2 -translate-y-[50%] items-center justify-center space-x-1 rounded-lg rounded-br-none bg-primary-default px-4 py-1.5 text-white`}
 
           svg:first-of-type {
-            ${tw`fill-current`}
+            ${tw`w-3.5 h-3.5 fill-current`}
           }
 
           svg:last-of-type {
@@ -60,7 +60,7 @@ export const StyledVehicleCard = styled.section(() => [
           ${tw`flex items-center justify-center gap-x-2`}
 
           svg {
-            ${tw`fill-primary-default`}
+            ${tw`w-4 h-4 fill-primary-default`}
           }
 
           span {
