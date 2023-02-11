@@ -1,19 +1,32 @@
 import { FC, Fragment } from 'react'
-import { StyledVehicleCard } from '@/styles/components/vehicles/vehicle-card'
 import Image from 'next/image'
+import 'twin.macro'
+import { StyledVehicleCard } from '@/styles/components/vehicles/vehicle-card'
 
-const VehicleCard: FC = () => {
+interface VehicleCardProps {
+  isInteractive?: boolean
+  vehicle: any
+}
+
+const VehicleCard: FC<VehicleCardProps> = props => {
+  const { vehicle, isInteractive = true } = props
+  const { name, model, brand, cover, price, priceBy, details } = vehicle
+
   return (
-    <StyledVehicleCard className="group">
+    <StyledVehicleCard
+      className={isInteractive ? 'group' : ''}
+      isInteractive={isInteractive}
+    >
       <div>
         <Image
-          src="https://res.cloudinary.com/dksfz3vua/image/upload/v1673457410/VEHICLES/oknziaj12hwk4fpcii39_pfpvw6.avif"
-          alt="vehicle"
+          src={cover}
+          alt={name}
           width={320}
           height={192}
+          tw="group-hover:scale-105"
         />
 
-        <button className="group/svg">
+        <button>
           <HeartSvg />
         </button>
       </div>
@@ -26,27 +39,27 @@ const VehicleCard: FC = () => {
           </div>
 
           <div>
-            <span>3,500.00 MAD</span>
-            <span>/day</span>
+            <span>{`${price.toFixed(2)} MAD`}</span>
+            <span>{`/${priceBy}`}</span>
           </div>
 
-          <span>Porsche turbo GT (2022)</span>
+          <span>{`${brand} ${name} (${model})`}</span>
         </div>
 
         <div>
           <div>
             <GearboxSvg />
-            <span>automatic</span>
+            <span>{details.gearbox}</span>
           </div>
 
           <div>
             <FuelSvg />
-            <span>diesel</span>
+            <span>{details.fuel}</span>
           </div>
 
           <div>
             <SeatSvg />
-            <span>5</span>
+            <span>{details.seats}</span>
           </div>
         </div>
       </div>

@@ -4,7 +4,7 @@ export const StyledHero = styled.section(() => [
   tw`relative max-w-screen-2xl h-[700px] lg:h-[850px] pt-4 xl:pt-8 pb-16 px-2 sm:px-4 md:px-8`,
   css`
     > div:nth-of-type(1) {
-      ${tw`absolute top-0 right-0 -z-10 h-full w-2/3 xl:w-1/2 hidden lg:block overflow-hidden`}
+      ${tw`absolute top-0 right-0 -z-10 h-full w-2/3 xl:w-1/2 hidden xl:block overflow-hidden`}
 
       img {
         ${tw`h-auto w-full object-cover`}
@@ -44,7 +44,7 @@ export const StyledHero = styled.section(() => [
     }
 
     > div:nth-of-type(3) {
-        ${tw`absolute top-[18%] right-[7%] hidden lg:block`}
+        ${tw`absolute top-[18%] right-[7%] hidden xl:block`}
 
         svg:nth-of-type(1) {
           ${tw`absolute -top-14 -translate-x-4`}
@@ -57,7 +57,23 @@ export const StyledHero = styled.section(() => [
     }
   
     > div:nth-of-type(4) {
-        ${tw`absolute top-[10%] right-[16%] hidden md:top-[20%] md:block xl:top-[11%] xl:right-[27%]`}
+      ${tw`absolute top-[16%] right-[12%] hidden md:block lg:top-[26%] xl:top-[12%] xl:right-[26%]`}
+    }
+    
+    > div:nth-of-type(5) {
+      ${tw`absolute bottom-[2%] right-[8%] hidden xl:block`}
+      
+      article {
+        ${tw`scale-75 border-4 border-transparent shadow-lg ring-4 ring-primary-default`}
+
+        > div:last-child > div:first-child > div:first-of-type {
+          ${tw`hidden`}
+        }
       }
+    }
+    
+      > div:nth-of-type(6) {
+        ${tw`absolute inset-0 -z-20 bg-gray-50`}
+    }
   `,
 ])
