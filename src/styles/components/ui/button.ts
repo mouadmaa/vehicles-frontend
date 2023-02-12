@@ -6,7 +6,7 @@ interface StyledButtonProps {
 }
 
 export const StyledButton = styled.button(({ variant }: StyledButtonProps) => [
-  tw`px-4 py-1.5 whitespace-nowrap rounded-lg border-2 font-medium shadow-md transition-all duration-300 hover:scale-103 hover:shadow-lg active:scale-95`,
+  tw`px-4 py-1.5 whitespace-nowrap rounded-lg border-2 font-medium shadow-md transition-all duration-300 hover:scale-102 hover:shadow-lg active:scale-95`,
   variant === 'Primary' &&
     tw`border-transparent bg-primary-default text-white hover:bg-primary-dark`,
   variant === 'Secondary' &&

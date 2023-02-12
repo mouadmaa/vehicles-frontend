@@ -3,11 +3,23 @@ import { createGlobalStyle } from 'styled-components'
 import tw, { GlobalStyles as BaseStyles } from 'twin.macro'
 
 const CustomStyles = createGlobalStyle({
+  html: {
+    ...tw`scroll-smooth`,
+  },
   body: {
-    ...tw`mx-auto max-w-screen-2xl text-black overflow-x-hidden`,
+    ...tw`text-black overflow-x-hidden`,
+  },
+  header: {
+    ...tw`mx-auto max-w-[1920px]`,
+  },
+  main: {
+    ...tw`px-2 sm:px-4 lg:px-6`,
+  },
+  footer: {
+    ...tw`mx-auto max-w-[1920px]`,
   },
   section: {
-    ...tw``,
+    ...tw`py-14 md:py-20`,
   },
   h1: {
     ...tw`lg:text-h1 text-h2`,
@@ -35,10 +47,18 @@ const CustomStyles = createGlobalStyle({
   },
 })
 
+const CustomCssStyles = createGlobalStyle`
+  main > * {
+    max-width: 1536px;
+    margin: 0 auto;
+  }
+`
+
 const GlobalStyles = () => (
   <Fragment>
     <BaseStyles />
     <CustomStyles />
+    <CustomCssStyles />
   </Fragment>
 )
 

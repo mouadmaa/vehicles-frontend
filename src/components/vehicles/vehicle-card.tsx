@@ -23,6 +23,7 @@ const VehicleCard: FC<VehicleCardProps> = props => {
           alt={name}
           width={320}
           height={192}
+          quality={100}
           tw="group-hover:scale-105"
         />
 
