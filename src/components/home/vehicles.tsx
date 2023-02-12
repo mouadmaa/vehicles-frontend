@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import Button from '@/components/ui/button'
-import VehicleCard from '@/components/vehicles/vehicle-card'
+import VehicleCard from '@/components/vehicle/vehicle-card'
 import { StyledVehicles } from '@/styles/components/home/vehicles'
 
 const Vehicles: FC = () => {

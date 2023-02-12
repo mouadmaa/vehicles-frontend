@@ -8,7 +8,11 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const Button: FC<ButtonProps> = props => {
-  return <StyledButton {...props}>{props.children}</StyledButton>
+  return (
+    <StyledButton {...props} className="group">
+      {props.children}
+    </StyledButton>
+  )
 }
 
 export default Button

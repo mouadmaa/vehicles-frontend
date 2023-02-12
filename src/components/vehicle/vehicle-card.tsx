@@ -1,7 +1,9 @@
 import { FC, Fragment } from 'react'
 import Image from 'next/image'
 import 'twin.macro'
-import { StyledVehicleCard } from '@/styles/components/vehicles/vehicle-card'
+import { StyledVehicleCard } from '@/styles/components/vehicle/vehicle-card'
+import { useRouter } from 'next/router'
+import { currencyFormat } from '@/utils'
 
 interface VehicleCardProps {
   isInteractive?: boolean
@@ -10,12 +12,20 @@ interface VehicleCardProps {
 
 const VehicleCard: FC<VehicleCardProps> = props => {
   const { vehicle, isInteractive = true } = props
+
+  const router = useRouter()
+
+  const handleClick = () => {
+    router.push('/search/slug')
+  }
+
   const { name, model, brand, cover, price, priceBy, details } = vehicle
 
   return (
     <StyledVehicleCard
       className={isInteractive ? 'group' : ''}
       isInteractive={isInteractive}
+      onClick={handleClick}
     >
       <div>
         <Image
@@ -40,7 +50,7 @@ const VehicleCard: FC<VehicleCardProps> = props => {
           </div>
 
           <div>
-            <span>{`${price.toFixed(2)} MAD`}</span>
+            <span>{`${currencyFormat(price)}`}</span>
             <span>{`/${priceBy}`}</span>
           </div>
 

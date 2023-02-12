@@ -2,7 +2,7 @@ import { FC } from 'react'
 import Image from 'next/image'
 import { StyledHero } from '@/styles/components/home/hero'
 import HeroSearch from '@/components/home/hero-search'
-import VehicleCard from '@/components/vehicles/vehicle-card'
+import VehicleCard from '@/components/vehicle/vehicle-card'
 
 const Hero: FC = () => {
   return (
