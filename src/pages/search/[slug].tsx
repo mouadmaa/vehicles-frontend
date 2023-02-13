@@ -1,12 +1,20 @@
-import { Fragment } from 'react'
 import { NextPage } from 'next'
-import VehicleHead from '@/components/vehicle/vehicle-head'
+import VehicleTitle from '@/components/vehicle/vehicle-title'
+import VehicleImages from '@/components/vehicle/vehicle-images'
+import { StyledVehicle } from '@/styles/components/pages/search/StyledVehicle'
 
 const Vehicle: NextPage = () => {
   return (
-    <Fragment>
-      <VehicleHead />
-    </Fragment>
+    <StyledVehicle>
+      <VehicleTitle />
+      <div>
+        <div>
+          <VehicleImages />
+        </div>
+
+        <div></div>
+      </div>
+    </StyledVehicle>
   )
 }
 

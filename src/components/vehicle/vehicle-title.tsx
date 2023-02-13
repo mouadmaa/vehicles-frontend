@@ -1,11 +1,11 @@
 import { NextPage } from 'next'
 import Button from '@/components/ui/button'
-import { StyledVehicleHead } from '@/styles/components/vehicle/vehicle-head'
+import { StyledVehicleTitle } from '@/styles/components/vehicle/vehicle-title'
 import 'twin.macro'
 
-const VehicleHead: NextPage = () => {
+const VehicleTitle: NextPage = () => {
   return (
-    <StyledVehicleHead>
+    <StyledVehicleTitle>
       <h1>Porsche turbo GT (2022)</h1>
       <div>
         <Button variant="Secondary">
@@ -17,11 +17,11 @@ const VehicleHead: NextPage = () => {
           <span>Save</span>
         </Button>
       </div>
-    </StyledVehicleHead>
+    </StyledVehicleTitle>
   )
 }
 
-export default VehicleHead
+export default VehicleTitle
 
 const ShareSvg = () => (
   <svg

@@ -16,6 +16,7 @@ const VehicleCard: FC<VehicleCardProps> = props => {
   const router = useRouter()
 
   const handleClick = () => {
+    if (!isInteractive) return
     router.push('/search/slug')
   }
 
