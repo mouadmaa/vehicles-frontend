@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes, FC } from 'react'
 import { StyledButton } from '@/styles/components/ui/button'
 
-export type ButtonVariant = 'Primary' | 'Secondary'
+export type ButtonVariant = 'Primary' | 'Secondary' | 'Tertiary'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant: ButtonVariant

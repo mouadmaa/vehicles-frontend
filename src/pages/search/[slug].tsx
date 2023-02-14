@@ -1,20 +1,34 @@
+import { Fragment } from 'react'
 import { NextPage } from 'next'
 import VehicleTitle from '@/components/vehicle/vehicle-title'
 import VehicleImages from '@/components/vehicle/vehicle-images'
+import VehicleFeatures from '@/components/vehicle/vehicle-features'
 import { StyledVehicle } from '@/styles/components/pages/search/StyledVehicle'
+import VehicleDesc from '@/components/vehicle/vehicle-desc'
+import AgencyInfo from '@/components/vehicle/agency-info'
+import VehicleOrder from '@/components/vehicle/vehicle-order'
+import 'twin.macro'
 
 const Vehicle: NextPage = () => {
   return (
-    <StyledVehicle>
+    <Fragment>
       <VehicleTitle />
-      <div>
+
+      <StyledVehicle>
         <div>
           <VehicleImages />
+          <VehicleFeatures />
+          <VehicleDesc />
+          <section tw="h-screen"></section>
+          <section tw="h-screen"></section>
         </div>
 
-        <div></div>
-      </div>
-    </StyledVehicle>
+        <div>
+          <AgencyInfo />
+          <VehicleOrder />
+        </div>
+      </StyledVehicle>
+    </Fragment>
   )
 }
 

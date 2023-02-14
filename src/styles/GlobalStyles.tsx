@@ -19,7 +19,7 @@ const CustomStyles = createGlobalStyle({
     ...tw`mx-auto max-w-[1920px]`,
   },
   section: {
-    ...tw`py-14 md:py-20`,
+    ...tw`py-3 md:py-5`,
   },
   h1: {
     ...tw`lg:text-h1 text-h2`,
