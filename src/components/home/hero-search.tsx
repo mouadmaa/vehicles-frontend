@@ -4,11 +4,17 @@ import {
   StyledHeroSearchTab,
 } from '@/styles/components/home/hero-search'
 import Button from '@/components/ui/button'
+import { useRouter } from 'next/router'
 
 const HeroSearch: FC = () => {
+  const router = useRouter()
   const [selectedOption, setSelectedOption] = useState('rent')
   const [location, setLocation] = useState('Larache, Morocco')
   const [when, setWhen] = useState('Select Rent Date')
+
+  const handleSearch = () => {
+    router.push('/search/slug')
+  }
 
   const options = ['rent', 'buy', 'sell']
 
@@ -46,7 +52,9 @@ const HeroSearch: FC = () => {
         </label>
         <div />
         <div>
-          <Button variant="Primary">Search</Button>
+          <Button variant="Primary" onClick={handleSearch}>
+            Search
+          </Button>
         </div>
       </div>
     </StyledHeroSearch>

@@ -43,6 +43,7 @@ module.exports = {
         vehicles: 'repeat(auto-fit, minmax(320px, 1fr))',
       },
       scale: {
+        80: '.80',
         102: '1.02',
       },
     },

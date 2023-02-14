@@ -8,10 +8,10 @@ export const StyledVehicleTitle = styled.section(() => [
     }
 
     > div {
-      ${tw`flex w-full items-center justify-between space-x-3 sm:w-auto`}
+      ${tw`flex w-full items-center justify-between sm:w-auto`}
 
       button {
-        ${tw`scale-90 hover:scale-95`}
+        ${tw`scale-90 hover:scale-95 active:scale-90`}
 
         svg {
           ${tw`w-5 h-5`}

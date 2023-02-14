@@ -1,5 +1,5 @@
 export const currencyFormat = (price: number) => {
-  const currency = new Intl.NumberFormat('ar-MA', {
+  const currency = new Intl.NumberFormat('fr-MA', {
     style: 'currency',
     currency: 'MAD',
   })

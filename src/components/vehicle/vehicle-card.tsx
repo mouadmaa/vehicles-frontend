@@ -1,9 +1,9 @@
 import { FC, Fragment } from 'react'
 import Image from 'next/image'
-import 'twin.macro'
-import { StyledVehicleCard } from '@/styles/components/vehicle/vehicle-card'
 import { useRouter } from 'next/router'
+import { StyledVehicleCard } from '@/styles/components/vehicle/vehicle-card'
 import { currencyFormat } from '@/utils'
+import 'twin.macro'
 
 interface VehicleCardProps {
   isInteractive?: boolean

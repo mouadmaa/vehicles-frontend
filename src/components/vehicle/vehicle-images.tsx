@@ -19,8 +19,8 @@ const VehicleImages: FC = () => {
         <Image
           src="https://res.cloudinary.com/dksfz3vua/image/upload/v1673458343/VEHICLES/porsche-911-carrera-exterior_w9nfoh.png"
           alt="car"
-          width={400}
-          height={200}
+          width={500}
+          height={280}
           quality={100}
           priority={true}
         />
@@ -29,8 +29,8 @@ const VehicleImages: FC = () => {
         <Image
           src="https://res.cloudinary.com/dksfz3vua/image/upload/v1673457410/VEHICLES/fnbivlaspfxtqfjva5y6_afz2tb.avif"
           alt="car"
-          width={400}
-          height={200}
+          width={500}
+          height={280}
           quality={100}
           priority={true}
         />
