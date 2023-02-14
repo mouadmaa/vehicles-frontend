@@ -13,7 +13,7 @@ const CustomStyles = createGlobalStyle({
     ...tw`mx-auto max-w-[1920px]`,
   },
   main: {
-    ...tw`px-2 sm:px-4 lg:px-6`,
+    ...tw`px-4 sm:px-6 lg:px-8`,
   },
   footer: {
     ...tw`mx-auto max-w-[1920px]`,

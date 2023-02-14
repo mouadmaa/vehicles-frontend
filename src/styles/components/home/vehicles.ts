@@ -1,7 +1,7 @@
 import tw, { css, styled } from 'twin.macro'
 
 export const StyledVehicles = styled.section(() => [
-  tw``,
+  tw`py-16`,
   css`
     > div:nth-child(1) {
       ${tw`md:flex justify-between items-center`}
@@ -19,10 +19,10 @@ export const StyledVehicles = styled.section(() => [
       }
 
       > div:last-child {
-        ${tw`hidden md:block`}
+        ${tw`hidden md:block self-end`}
 
         button {
-          ${tw`px-8 py-3`}
+          ${tw`px-6 py-2`}
         }
       }
     }
