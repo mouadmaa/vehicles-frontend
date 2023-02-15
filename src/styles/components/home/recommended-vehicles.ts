@@ -39,7 +39,7 @@ export const StyledRecommendedVehicles = styled.section(() => [
       ${tw`flex justify-center md:hidden`}
 
       button {
-        ${tw`px-8 py-3`}
+        ${tw`w-full px-8 py-3`}
       }
     }
   `,

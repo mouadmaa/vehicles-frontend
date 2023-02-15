@@ -11,6 +11,7 @@ const App = ({ Component, pageProps }: AppProps) => {
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, maximum-scale=5, viewport-fit=cover"
         />
+        <title>Tonobilat</title>
       </Head>
       <Layout>
         <Component {...pageProps} />
