@@ -111,19 +111,25 @@ const StartSvg = () => (
 )
 
 const LineSvg = () => (
-  <svg width="228" height="310" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg
+    width="228"
+    height="310"
+    fill="none"
+    viewBox="0 0 228 310"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <path
-      d="M8 1 3.725 37.769a8 8 0 0 0 5.154 8.42l210.046 78.235a8 8 0 0 1 5.191 8.013l-6.451 99.776c-.337 5.213-5.498 8.71-10.465 7.09l-101.926-33.256a8 8 0 0 0-9.477 3.723L41 308.5"
-      stroke="url(#a)"
+      d="M8 1L3.72457 37.7687C3.29913 41.4275 5.42693 44.9039 8.87874 46.1896L218.925 124.424C222.234 125.656 224.344 128.913 224.116 132.437L217.665 232.213C217.328 237.426 212.167 240.923 207.2 239.303L105.274 206.047C101.631 204.858 97.657 206.42 95.7975 209.77L41 308.5"
+      stroke="url(#paint0_linear_10_2196)"
       strokeWidth="6"
     />
     <defs>
       <linearGradient
-        id="a"
+        id="paint0_linear_10_2196"
         x1="49.5"
         y1="331.5"
         x2="5.5"
-        y2="1"
+        y2="1.00002"
         gradientUnits="userSpaceOnUse"
       >
         <stop stopColor="#EF233C" />
