@@ -2,13 +2,13 @@ import { Fragment } from 'react'
 import { NextPage } from 'next'
 import Hero from '@/components/home/hero'
 import 'twin.macro'
-import Vehicles from '@/components/home/vehicles'
+import RecommendedVehicles from '@/components/home/recommended-vehicles'
 
 const Home: NextPage = () => {
   return (
     <Fragment>
       <Hero />
-      <Vehicles />
+      <RecommendedVehicles />
     </Fragment>
   )
 }

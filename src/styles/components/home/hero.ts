@@ -7,7 +7,7 @@ export const StyledHero = styled.section(() => [
       ${tw`absolute top-0 right-0 -z-10 h-full w-2/3 xl:w-1/2 hidden xl:block overflow-hidden`}
 
       img {
-        ${tw`h-auto w-full object-cover`}
+        ${tw`h-full w-full object-cover`}
       }
     }
 

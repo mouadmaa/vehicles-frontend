@@ -1,6 +1,6 @@
 import tw, { css, styled } from 'twin.macro'
 
-export const StyledVehicles = styled.section(() => [
+export const StyledRecommendedVehicles = styled.section(() => [
   tw`py-16`,
   css`
     > div:nth-child(1) {

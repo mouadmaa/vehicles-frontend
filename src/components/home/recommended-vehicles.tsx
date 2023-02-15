@@ -1,11 +1,11 @@
 import { FC } from 'react'
 import Button from '@/components/ui/button'
 import VehicleCard from '@/components/vehicle/vehicle-card'
-import { StyledVehicles } from '@/styles/components/home/vehicles'
+import { StyledRecommendedVehicles } from '@/styles/components/home/recommended-vehicles'
 
-const Vehicles: FC = () => {
+const RecommendedVehicles: FC = () => {
   return (
-    <StyledVehicles>
+    <StyledRecommendedVehicles>
       <div>
         <div>
           <h2>Based on your location</h2>
@@ -23,11 +23,11 @@ const Vehicles: FC = () => {
       <div>
         <Button variant="Primary">Browse more vehicles</Button>
       </div>
-    </StyledVehicles>
+    </StyledRecommendedVehicles>
   )
 }
 
-export default Vehicles
+export default RecommendedVehicles
 
 const VEHICLES = [
   {

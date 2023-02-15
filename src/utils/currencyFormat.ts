@@ -3,5 +3,5 @@ export const currencyFormat = (price: number) => {
     style: 'currency',
     currency: 'MAD',
   })
-  return currency.format(price)
+  return currency.format(price).replace('MAD', 'DH')
 }

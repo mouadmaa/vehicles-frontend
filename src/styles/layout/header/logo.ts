@@ -5,7 +5,7 @@ export const StyledLogo = styled(Link)(() => [
   tw`p-1`,
   css`
     svg {
-      ${tw`h-10 w-32`}
+      ${tw`h-10 w-36`}
     }
   `,
 ])
