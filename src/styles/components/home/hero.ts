@@ -4,10 +4,10 @@ export const StyledHero = styled.section(() => [
   tw`relative h-[700px] lg:h-[850px] pt-4 xl:pt-8 pb-16 px-2 sm:px-4 md:px-8`,
   css`
     > div:nth-of-type(1) {
-      ${tw`absolute top-0 right-0 -z-10 h-full w-2/3 xl:w-1/2 hidden xl:block overflow-hidden`}
+      ${tw`absolute top-0 right-0 -z-10 h-full w-full md:w-2/3 xl:w-1/2 overflow-hidden`}
 
       img {
-        ${tw`h-full w-full object-cover`}
+        ${tw`h-full w-full object-cover opacity-50 xl:opacity-100`}
       }
     }
 

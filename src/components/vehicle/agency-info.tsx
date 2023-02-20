@@ -1,12 +1,18 @@
 import { FC } from 'react'
 import Image from 'next/image'
-import { StyledAgencyInfo } from '@/styles/components/vehicle/agency-info'
 import Button from '@/components/ui/button'
+import { StyledAgencyInfo } from '@/styles/components/vehicle/agency-info'
 import 'twin.macro'
 
-const AgencyInfo: FC = () => {
+interface AgencyInfoProps {
+  inMainContent?: boolean
+}
+
+const AgencyInfo: FC<AgencyInfoProps> = props => {
+  const { inMainContent = false } = props
+
   return (
-    <StyledAgencyInfo>
+    <StyledAgencyInfo inMainContent={inMainContent}>
       <div className="group">
         <div>
           <Image
@@ -23,20 +29,14 @@ const AgencyInfo: FC = () => {
         </div>
       </div>
       <div>
-        <small>Contact owner by:</small>
-        <div>
-          <Button variant="Tertiary">
-            <PhoneSvg />
-            <span>Phone</span>
-          </Button>
-          <Button
-            variant="Tertiary"
-            className="w-full group flex items-center justify-center space-x-2 whitespace-nowrap rounded-lg bg-shade-96 px-4 py-1.5 text-xs font-medium text-primary-default shadow transition-all duration-300 hover:scale-105 hover:border-primary-default hover:bg-primary-default hover:text-white hover:shadow-md active:scale-95 sm:text-sm md:text-md"
-          >
-            <MessageSvg />
-            <span>Message</span>
-          </Button>
-        </div>
+        <Button variant="Tertiary">
+          <PhoneSvg />
+          <span>Phone</span>
+        </Button>
+        <Button variant="Tertiary">
+          <MessageSvg />
+          <span>Message</span>
+        </Button>
       </div>
     </StyledAgencyInfo>
   )

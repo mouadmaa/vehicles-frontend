@@ -1,15 +1,15 @@
 import tw, { css, styled } from 'twin.macro'
 
 export const StyledHeroSearch = styled.article(() => [
-  tw`mx-auto md:mx-0 w-min`,
+  tw`mx-auto md:mx-0 w-full md:w-min`,
   css`
     > div:first-child {
-      ${tw`w-full md:w-min flex justify-center rounded-tl-lg rounded-tr-lg bg-white shadow-md md:w-min`}
+      ${tw`w-full flex justify-center rounded-tl-lg rounded-tr-lg bg-white shadow-md md:w-min`}
     }
   }
 
   > div:last-child {
-    ${tw`w-min flex flex-col items-center rounded-lg rounded-tl-none bg-white shadow-md md:flex-row`}
+    ${tw`w-full flex flex-col items-center rounded-lg rounded-tl-none bg-white shadow-md md:flex-row`}
     label {
       ${tw`flex cursor-pointer flex-col py-4 px-8`}
       span {

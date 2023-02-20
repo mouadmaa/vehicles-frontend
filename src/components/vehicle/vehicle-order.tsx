@@ -8,7 +8,7 @@ const VehicleOrder: FC = () => {
       <div>
         <small>Rent Price:</small>
         <div>
-          <span>2,450 MAD</span>
+          <span>2.450,00 MAD</span>
           <span>/day</span>
         </div>
       </div>

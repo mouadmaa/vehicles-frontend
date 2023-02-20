@@ -19,6 +19,7 @@ const Vehicle: NextPage = () => {
           <VehicleImages />
           <VehicleFeatures />
           <VehicleDesc />
+          <AgencyInfo inMainContent />
           <section tw="h-screen"></section>
         </div>
 
