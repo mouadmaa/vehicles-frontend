@@ -1,7 +1,7 @@
 import tw, { css, styled } from 'twin.macro'
 
 export const StyledHero = styled.section(() => [
-  tw`relative h-[700px] lg:h-[850px] pt-4 xl:pt-8 pb-16 px-2 sm:px-4 md:px-8`,
+  tw`relative h-[700px] lg:h-[850px] pt-4 xl:pt-8 pb-16 px-2 sm:px-4 md:px-8 -mx-3 md:-mx-4 lg:-mx-6 2xl:mx-auto`,
   css`
     > div:nth-of-type(1) {
       ${tw`absolute top-0 right-0 -z-10 h-full w-full md:w-2/3 xl:w-1/2 overflow-hidden`}
