@@ -1,7 +1,7 @@
 import tw, { css, styled } from 'twin.macro'
 
 export const StyledHeroSearch = styled.article(() => [
-  tw`mx-auto md:mx-0 w-full md:w-min`,
+  tw`mx-auto md:mx-0 w-full md:w-min px-6 md:px-0`,
   css`
     > div:first-child {
       ${tw`w-full flex justify-center rounded-tl-lg rounded-tr-lg bg-white shadow-md md:w-min`}
