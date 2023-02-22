@@ -1,25 +1,10 @@
-import { FC, useEffect } from 'react'
+import { FC } from 'react'
 import Image from 'next/image'
 import { StyledHero } from '@/styles/components/home/hero'
 import HeroSearch from '@/components/home/hero-search'
 import VehicleCard from '@/components/vehicle/vehicle-card'
-import { createStore, useStore } from 'zustand'
-
-const bearStore = createStore((set: any) => ({
-  bears: 0,
-  increasePopulation: () => set((state: any) => ({ bears: state.bears + 1 })),
-  removeAllBears: () => set({ bears: 0 }),
-}))
-
-export const useBearStore = () => useStore(bearStore)
 
 const Hero: FC = () => {
-  const { bears, increasePopulation, removeAllBears } = useBearStore()
-
-  useEffect(() => {
-    console.log(bears)
-  }, [bears])
-
   return (
     <StyledHero>
       <div>
@@ -35,12 +20,12 @@ const Hero: FC = () => {
 
       <div>
         <div>
-          <h1 onClick={increasePopulation}>
+          <h1>
             Buy, rent, or sell <br />
             your vehicles <br />
             easily
           </h1>
-          <h5 onClick={removeAllBears}>
+          <h5>
             A great platform to buy, sell, or even rent your vehicles without
             any commissions.
           </h5>
