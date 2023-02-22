@@ -1,7 +1,6 @@
 import { Fragment } from 'react'
 import { NextPage } from 'next'
 import Hero from '@/components/home/hero'
-import 'twin.macro'
 import RecommendedVehicles from '@/components/home/recommended-vehicles'
 
 const Home: NextPage = () => {

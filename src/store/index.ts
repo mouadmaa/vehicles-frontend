@@ -1,11 +1,9 @@
-import { useLayoutEffect } from 'react'
+import { createContext, useLayoutEffect } from 'react'
 import { createStore, StoreApi, UseBoundStore } from 'zustand'
-import createContext from 'zustand/context'
 
 let store: UseBoundStore<StoreApi<{}>>
 
-const StoreContext = createContext()
-
+const StoreContext = createContext({})
 export const StoreProvider = StoreContext.Provider
 
 export const initializeStore = (preloadedState = {}) => {
