@@ -1,7 +1,7 @@
 import tw, { css, styled } from 'twin.macro'
 
 export const StyledHero = styled.section(() => [
-  tw`relative h-[700px] lg:h-[850px] pt-4 xl:pt-8 pb-16 px-2 sm:px-4 md:px-8`,
+  tw`relative h-[700px] lg:h-[850px] pt-4 xl:pt-8 pb-16 px-2 sm:px-4 md:px-8 -mx-4 md:-mx-6 2xl:mx-auto`,
   css`
     > div:nth-of-type(1) {
       ${tw`absolute top-0 right-0 -z-10 h-full w-full md:w-2/3 xl:w-1/2 overflow-hidden`}
@@ -61,7 +61,7 @@ export const StyledHero = styled.section(() => [
     }
   
     > div:nth-of-type(4) {
-      ${tw`absolute top-[16%] right-[12%] hidden md:block lg:top-[26%] xl:top-[12%] xl:right-[26%]`}
+      ${tw`blur-[0.3px] absolute top-[16%] right-[12%] hidden md:block lg:top-[26%] xl:top-[12%] xl:right-[26%]`}
       
       article > div:first-child button {
         ${tw`hidden`}
@@ -69,7 +69,7 @@ export const StyledHero = styled.section(() => [
     }
     
     > div:nth-of-type(5) {
-      ${tw`absolute bottom-[4%] right-[8%] hidden xl:block`}
+      ${tw`blur-[0.3px] absolute bottom-[4%] right-[8%] hidden xl:block`}
       
       article {
         ${tw`scale-75 border-4 border-transparent shadow-lg ring-4 ring-primary-default`}
