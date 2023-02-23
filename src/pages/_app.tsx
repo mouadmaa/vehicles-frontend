@@ -1,11 +1,11 @@
 import { Fragment } from 'react'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import { StoreProvider, useCreateStore } from '@/store'
+import { StoreProvider, useCreateStore } from '@/store/store'
 import Layout from '@/layout/layout'
 
 const App = ({ Component, pageProps }: AppProps) => {
-  const createStore = useCreateStore(pageProps.initialZustandState)
+  const store = useCreateStore(pageProps.initialZustandState)
 
   return (
     <Fragment>
@@ -16,7 +16,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         />
         <title>Tonobilat</title>
       </Head>
-      <StoreProvider value={createStore}>
+      <StoreProvider value={store}>
         <Layout>
           <Component {...pageProps} />
         </Layout>
