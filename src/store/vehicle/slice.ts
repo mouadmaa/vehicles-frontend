@@ -1,5 +1,7 @@
 import { StateCreator } from 'zustand'
 import { VehicleSlice } from '@/store/vehicle/types'
+import { useStore } from '@/store/store'
+import { shallow } from 'zustand/shallow'
 
 export const vehicleSlice: StateCreator<VehicleSlice> = set => ({
   vehicles: [],
@@ -12,4 +14,5 @@ export const vehicleSlice: StateCreator<VehicleSlice> = set => ({
   },
 })
 
-// export const slice = () => useStore(vehicleStore)
+export const useVehicleStore = (): VehicleSlice =>
+  useStore(state => state, shallow)

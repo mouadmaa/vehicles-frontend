@@ -2,15 +2,15 @@ import { Fragment, useEffect } from 'react'
 import { GetServerSideProps, NextPage } from 'next'
 import Hero from '@/components/home/hero'
 import RecommendedVehicles from '@/components/home/recommended-vehicles'
-import { initializeStore, useStore } from '@/store/store'
-import { shallow } from 'zustand/shallow'
+import { initializeStore } from '@/store/store'
+import { useVehicleStore } from '@/store/vehicle/slice'
 
 const Home: NextPage = () => {
-  const data = useStore((state: { data: any }) => state.data, shallow)
+  const { vehicles } = useVehicleStore()
 
   useEffect(() => {
-    console.log(data)
-  }, [data])
+    console.log(vehicles)
+  }, [vehicles])
 
   return (
     <Fragment>
@@ -23,14 +23,11 @@ const Home: NextPage = () => {
 export default Home
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const zustandStore = initializeStore()
+  const store = initializeStore()
 
-  const res = await fetch('https://jsonplaceholder.typicode.com/todos')
-  const data = await res.json()
-
-  zustandStore.getState().setData(data)
+  await store.getState().getVehicles()
 
   return {
-    props: { initialZustandState: JSON.stringify(zustandStore.getState()) },
+    props: { initialState: JSON.stringify(store.getState()) },
   }
 }

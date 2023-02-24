@@ -1,31 +1,31 @@
 import { createContext, useContext, useMemo } from 'react'
-import create, { StoreApi, UseBoundStore } from 'zustand'
+import { create, StoreApi, UseBoundStore } from 'zustand'
+import { vehicleSlice } from '@/store/vehicle/slice'
+import { VehicleSlice } from '@/store/vehicle/types'
+
+type StoreState = VehicleSlice
+
+let store: UseBoundStore<StoreApi<StoreState>> | undefined
 
 export const StoreContext = createContext({})
 export const StoreProvider = StoreContext.Provider
 
-export const useStore = (selector: any, eqFn: any) => {
-  const store = useContext(StoreContext) as any
-  return store(selector, eqFn)
+export const useStore = <StoreState>(
+  selector: (state: StoreState) => StoreState,
+  equals?: (a: StoreState, b: StoreState) => boolean,
+): StoreState => {
+  const store = useContext(StoreContext) as UseBoundStore<StoreApi<StoreState>>
+  return store<StoreState>(selector, equals)
 }
 
-let store: UseBoundStore<StoreApi<any>> | undefined
-
-const initialState: any = {
-  data: null,
-}
-
-function initStore(preloadedState = initialState) {
-  return create((set: any, _get: any) => ({
-    ...initialState,
+const initStore = (preloadedState = {}) => {
+  return create<StoreState>((...params) => ({
+    ...vehicleSlice(...params),
     ...preloadedState,
-    setData: (data: any) => {
-      set({ data })
-    },
   }))
 }
 
-export const initializeStore = (preloadedState?: any) => {
+export const initializeStore = (preloadedState?: StoreState) => {
   let _store = store ?? initStore(preloadedState)
 
   // After navigating to a page with an initial Zustand state, merge that state
@@ -47,7 +47,7 @@ export const initializeStore = (preloadedState?: any) => {
   return _store
 }
 
-export function useCreateStore(initialState: any) {
+export function useCreateStore(initialState: StoreState | string) {
   const state =
     typeof initialState === 'string' ? JSON.parse(initialState) : initialState
   return useMemo(() => initializeStore(state), [state])

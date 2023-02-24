@@ -5,7 +5,7 @@ import { StoreProvider, useCreateStore } from '@/store/store'
 import Layout from '@/layout/layout'
 
 const App = ({ Component, pageProps }: AppProps) => {
-  const store = useCreateStore(pageProps.initialZustandState)
+  const store = useCreateStore(pageProps.initialState)
 
   return (
     <Fragment>
