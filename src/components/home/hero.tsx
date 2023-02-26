@@ -53,11 +53,11 @@ const Hero: FC = () => {
       </div>
 
       <div>
-        <VehicleCard isInteractive={false} vehicle={VEHICLES[0]} />
+        <VehicleCard isInteractive={false} vehicle={VEHICLES[0] as any} />
       </div>
 
       <div>
-        <VehicleCard isInteractive={false} vehicle={VEHICLES[1]} />
+        <VehicleCard isInteractive={false} vehicle={VEHICLES[1] as any} />
       </div>
 
       <div />
