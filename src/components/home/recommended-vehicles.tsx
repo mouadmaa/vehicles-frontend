@@ -2,8 +2,11 @@ import { FC } from 'react'
 import Button from '@/components/ui/button'
 import VehicleCard from '@/components/vehicle/vehicle-card'
 import { StyledRecommendedVehicles } from '@/styles/components/home/recommended-vehicles'
+import { useVehicleStore } from '@/store/vehicle/slice'
 
 const RecommendedVehicles: FC = () => {
+  const { vehicles } = useVehicleStore()
+
   return (
     <StyledRecommendedVehicles>
       <div>
@@ -16,8 +19,8 @@ const RecommendedVehicles: FC = () => {
         </div>
       </div>
       <div>
-        {VEHICLES.map((vehicle, index) => (
-          <VehicleCard key={index} vehicle={vehicle} />
+        {vehicles.map(vehicle => (
+          <VehicleCard key={vehicle.id} vehicle={vehicle} />
         ))}
       </div>
       <div>
@@ -28,118 +31,3 @@ const RecommendedVehicles: FC = () => {
 }
 
 export default RecommendedVehicles
-
-const VEHICLES = [
-  {
-    name: 'Turbo GT',
-    model: '2022',
-    brand: 'Porsche',
-    cover:
-      'https://res.cloudinary.com/dksfz3vua/image/upload/v1673457410/VEHICLES/oknziaj12hwk4fpcii39_pfpvw6.avif',
-    price: 3500,
-    priceBy: 'day',
-    details: {
-      gearbox: 'automatic',
-      fuel: 'Diesel',
-      seats: '4',
-    },
-  },
-  {
-    name: 'Carrera',
-    model: '2023',
-    brand: 'Porsche',
-    cover:
-      'https://res.cloudinary.com/dksfz3vua/image/upload/v1673458343/VEHICLES/porsche-911-carrera-exterior_w9nfoh.png',
-    price: 2450,
-    priceBy: 'hour',
-    details: {
-      gearbox: 'Manual',
-      fuel: 'Gasoline',
-      seats: '2',
-    },
-  },
-  {
-    name: 'Turbo GT',
-    model: '2022',
-    brand: 'Porsche',
-    cover:
-      'https://res.cloudinary.com/dksfz3vua/image/upload/v1673457410/VEHICLES/oknziaj12hwk4fpcii39_pfpvw6.avif',
-    price: 3500,
-    priceBy: 'day',
-    details: {
-      gearbox: 'automatic',
-      fuel: 'Diesel',
-      seats: '4',
-    },
-  },
-  {
-    name: 'Carrera',
-    model: '2023',
-    brand: 'Porsche',
-    cover:
-      'https://res.cloudinary.com/dksfz3vua/image/upload/v1673458343/VEHICLES/porsche-911-carrera-exterior_w9nfoh.png',
-    price: 2450,
-    priceBy: 'hour',
-    details: {
-      gearbox: 'Manual',
-      fuel: 'Gasoline',
-      seats: '2',
-    },
-  },
-  {
-    name: 'Turbo GT',
-    model: '2022',
-    brand: 'Porsche',
-    cover:
-      'https://res.cloudinary.com/dksfz3vua/image/upload/v1673457410/VEHICLES/oknziaj12hwk4fpcii39_pfpvw6.avif',
-    price: 3500,
-    priceBy: 'day',
-    details: {
-      gearbox: 'automatic',
-      fuel: 'Diesel',
-      seats: '4',
-    },
-  },
-  {
-    name: 'Carrera',
-    model: '2023',
-    brand: 'Porsche',
-    cover:
-      'https://res.cloudinary.com/dksfz3vua/image/upload/v1673458343/VEHICLES/porsche-911-carrera-exterior_w9nfoh.png',
-    price: 2450,
-    priceBy: 'hour',
-    details: {
-      gearbox: 'Manual',
-      fuel: 'Gasoline',
-      seats: '2',
-    },
-  },
-  {
-    name: 'Turbo GT',
-    model: '2022',
-    brand: 'Porsche',
-    cover:
-      'https://res.cloudinary.com/dksfz3vua/image/upload/v1673457410/VEHICLES/oknziaj12hwk4fpcii39_pfpvw6.avif',
-    price: 3500,
-    priceBy: 'day',
-    details: {
-      gearbox: 'automatic',
-      fuel: 'Diesel',
-      seats: '4',
-    },
-  },
-  {
-    name: 'Carrera',
-    model: '2023',
-    brand: 'Porsche',
-    cover:
-      'https://res.cloudinary.com/dksfz3vua/image/upload/v1673458343/VEHICLES/porsche-911-carrera-exterior_w9nfoh.png',
-    price: 2450,
-    priceBy: 'hour',
-    details: {
-      gearbox: 'Manual',
-      fuel: 'Gasoline',
-      seats: '2',
-    },
-  },
-]

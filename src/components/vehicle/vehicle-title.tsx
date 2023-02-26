@@ -2,11 +2,16 @@ import { NextPage } from 'next'
 import Button from '@/components/ui/button'
 import { StyledVehicleTitle } from '@/styles/components/vehicle/vehicle-title'
 import 'twin.macro'
+import { useVehicleStore } from '@/store/vehicle/slice'
 
 const VehicleTitle: NextPage = () => {
+  const { vehicle } = useVehicleStore()
+
+  const { name, brand, model } = vehicle
+
   return (
     <StyledVehicleTitle>
-      <h1>Porsche turbo GT (2022)</h1>
+      <h1>{`${brand} ${name} (${model})`}</h1>
       <div>
         <Button variant="Secondary">
           <ShareSvg />

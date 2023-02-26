@@ -6,20 +6,19 @@ const api = axios.create({
   baseURL: `${BACKEND_API_URL}`,
 })
 
-api.interceptors.request.use(
-  config => {
-    if (config.headers) {
-      ;(config.headers as AxiosHeaders).set('Authorization', ``)
-    }
-    return config
-  },
-  error => Promise.reject(error),
-)
+const errorHandler = (error: any) => {
+  console.error('An Error Occurs: ', error.response.data)
+  return Promise.reject(error)
+}
 
-api.interceptors.response.use(
-  response => response,
-  error => Promise.reject(error),
-)
+api.interceptors.request.use(config => {
+  if (config.headers) {
+    ;(config.headers as AxiosHeaders).set('Authorization', ``)
+  }
+  return config
+}, errorHandler)
+
+api.interceptors.response.use(response => response, errorHandler)
 
 export default api
 

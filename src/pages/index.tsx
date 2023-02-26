@@ -1,17 +1,10 @@
-import { Fragment, useEffect } from 'react'
+import { Fragment } from 'react'
 import { GetServerSideProps, NextPage } from 'next'
 import Hero from '@/components/home/hero'
 import RecommendedVehicles from '@/components/home/recommended-vehicles'
 import { initializeStore } from '@/store/store'
-import { useVehicleStore } from '@/store/vehicle/slice'
 
 const Home: NextPage = () => {
-  const { vehicles } = useVehicleStore()
-
-  useEffect(() => {
-    console.log(vehicles)
-  }, [vehicles])
-
   return (
     <Fragment>
       <Hero />

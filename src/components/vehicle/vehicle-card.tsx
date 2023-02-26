@@ -1,13 +1,14 @@
 import { FC, Fragment } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
+import { Vehicle } from '@/store/vehicle/types'
+import { formatCurrency } from '@/utils/helpers'
 import { StyledVehicleCard } from '@/styles/components/vehicle/vehicle-card'
-import { currencyFormat } from '@/utils'
 import 'twin.macro'
 
 interface VehicleCardProps {
   isInteractive?: boolean
-  vehicle: any
+  vehicle: Vehicle
 }
 
 const VehicleCard: FC<VehicleCardProps> = props => {
@@ -15,12 +16,12 @@ const VehicleCard: FC<VehicleCardProps> = props => {
 
   const router = useRouter()
 
-  const handleClick = () => {
+  const handleClick = async () => {
     if (!isInteractive) return
-    router.push('/search/slug')
+    await router.push(`/search/${vehicle.slug}`)
   }
 
-  const { name, model, brand, cover, price, priceBy, details } = vehicle
+  const { name, model, brand, price, priceBy, details } = vehicle
 
   return (
     <StyledVehicleCard
@@ -30,7 +31,9 @@ const VehicleCard: FC<VehicleCardProps> = props => {
     >
       <div>
         <Image
-          src={cover}
+          src={
+            'https://res.cloudinary.com/dksfz3vua/image/upload/v1673457410/VEHICLES/oknziaj12hwk4fpcii39_pfpvw6.avif'
+          }
           alt={name}
           width={320}
           height={192}
@@ -51,7 +54,7 @@ const VehicleCard: FC<VehicleCardProps> = props => {
           </div>
 
           <div>
-            <span>{`${currencyFormat(price)}`}</span>
+            <span>{`${formatCurrency(price)}`}</span>
             <span>{`/${priceBy}`}</span>
           </div>
 

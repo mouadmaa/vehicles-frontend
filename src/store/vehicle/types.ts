@@ -8,7 +8,7 @@ export type Vehicle = {
   type: VehicleType
   price: number
   priceBy: PriceBy
-  details: Object | null
+  details: any
   desc: string | null
   images: Object[]
   rentStart: Date | null
@@ -22,7 +22,9 @@ export type Vehicle = {
 
 export interface VehicleSlice {
   vehicles: Vehicle[]
-  getVehicles: () => Promise<void>
+  vehicle: Vehicle
+  getVehicles: () => Promise<Vehicle[]>
+  getVehicleBySlug: (slug: string) => Promise<void>
 }
 
 export enum VehicleType {
