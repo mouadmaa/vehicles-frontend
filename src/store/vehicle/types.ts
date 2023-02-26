@@ -1,6 +1,7 @@
 import { ApiResponse } from '@/lib/axios'
+import { Agency } from '@/store/agency/types'
 
-export type Vehicle = {
+export interface Vehicle {
   id: string
   name: string
   model: string
@@ -16,6 +17,7 @@ export type Vehicle = {
   isVisible: boolean
   slug: string
   agencyId: string
+  agency: Agency
   createdAt: Date
   updatedAt: Date
 }

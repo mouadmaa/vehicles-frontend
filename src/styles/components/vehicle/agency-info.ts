@@ -20,10 +20,10 @@ export const StyledAgencyInfo = styled.section(
         }
 
         > div:last-child {
-          ${tw`flex h-full flex-col justify-around`}
+          ${tw`flex h-full flex-col justify-around text-gray-700`}
 
           h3 {
-            ${tw`text-md font-semibold capitalize text-gray-700 transition-colors duration-200`}
+            ${tw`text-md font-semibold capitalize transition-colors duration-200`}
           }
 
           p {

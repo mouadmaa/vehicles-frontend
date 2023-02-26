@@ -54,8 +54,8 @@ const VehicleCard: FC<VehicleCardProps> = props => {
           </div>
 
           <div>
-            <span>{`${formatCurrency(price)}`}</span>
-            <span>{`/${priceBy}`}</span>
+            <span>{formatCurrency(price)}</span>
+            <span>/{priceBy}</span>
           </div>
 
           <span>{`${brand} ${name} (${model})`}</span>

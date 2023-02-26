@@ -7,8 +7,8 @@ import { StyledVehicle } from '@/styles/components/pages/search/StyledVehicle'
 import VehicleDesc from '@/components/vehicle/vehicle-desc'
 import AgencyInfo from '@/components/vehicle/agency-info'
 import VehicleOrder from '@/components/vehicle/vehicle-order'
-import 'twin.macro'
 import { initializeStore } from '@/store/store'
+import 'twin.macro'
 
 const Vehicle: NextPage = () => {
   return (

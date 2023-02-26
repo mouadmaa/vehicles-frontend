@@ -1,7 +1,9 @@
 import { FC } from 'react'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import Button from '@/components/ui/button'
 import { StyledAgencyInfo } from '@/styles/components/vehicle/agency-info'
+import { useVehicleStore } from '@/store/vehicle/slice'
 import 'twin.macro'
 
 interface AgencyInfoProps {
@@ -11,12 +13,23 @@ interface AgencyInfoProps {
 const AgencyInfo: FC<AgencyInfoProps> = props => {
   const { inMainContent = false } = props
 
+  const router = useRouter()
+  const { vehicle } = useVehicleStore()
+
+  const handleClick = async () => {
+    await router.push(`/agency/${vehicle.agency.slug}`)
+  }
+
+  const {
+    agency: { name, address, coverUrl },
+  } = vehicle
+
   return (
     <StyledAgencyInfo inMainContent={inMainContent}>
-      <div className="group">
+      <div className="group" onClick={handleClick}>
         <div>
           <Image
-            src="https://res.cloudinary.com/dksfz3vua/image/upload/v1672138105/ban/ch9kxz2bsdroyl33xf39.png"
+            src={coverUrl || ''}
             alt="agency"
             width={120}
             height={60}
@@ -24,8 +37,8 @@ const AgencyInfo: FC<AgencyInfoProps> = props => {
           />
         </div>
         <div>
-          <h3 tw="group-hover:text-primary-default">Badr Grir Agency</h3>
-          <p>Rich Capital vehicles LLC</p>
+          <h3 tw="group-hover:text-primary-default">{name}</h3>
+          <p>{address}</p>
         </div>
       </div>
       <div>

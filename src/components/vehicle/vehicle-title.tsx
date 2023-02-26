@@ -1,8 +1,8 @@
 import { NextPage } from 'next'
 import Button from '@/components/ui/button'
 import { StyledVehicleTitle } from '@/styles/components/vehicle/vehicle-title'
-import 'twin.macro'
 import { useVehicleStore } from '@/store/vehicle/slice'
+import 'twin.macro'
 
 const VehicleTitle: NextPage = () => {
   const { vehicle } = useVehicleStore()

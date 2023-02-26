@@ -17,7 +17,7 @@ export const vehicleSlice: StateCreator<VehicleSlice> = set => ({
   },
   getVehicleBySlug: async (slug: string) => {
     const { data } = await api.get<VehiclesResponse>(
-      `${vehicleUrl}?searchBy=slug[${slug}]`,
+      `${vehicleUrl}?populate=agency&searchBy=slug[${slug}]`,
     )
     set({ vehicle: data.data[0] })
   },
