@@ -12,8 +12,8 @@ const HeroSearch: FC = () => {
   const [location, setLocation] = useState('Larache, Morocco')
   const [when, setWhen] = useState('Select Rent Date')
 
-  const handleSearch = () => {
-    router.push('/search/slug')
+  const handleSearch = async () => {
+    await router.push('/search')
   }
 
   const options = ['rent', 'buy', 'sell']
