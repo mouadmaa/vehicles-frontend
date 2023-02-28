@@ -1,20 +1,28 @@
 import { ApiResponse } from '@/lib/axios'
 import { Agency } from '@/store/agency/types'
 
+export interface VehicleSlice {
+  vehicles: Vehicle[]
+  vehicle: Vehicle
+  getVehicles: () => Promise<Vehicle[]>
+  getVehicleBySlug: (slug: string) => Promise<void>
+}
+
 export interface Vehicle {
   id: string
-  name: string
   model: string
   brand: string
+  year: string
   type: VehicleType
   price: number
   priceBy: PriceBy
-  details: any
-  desc: string | null
+  coverUrl: string
   images: Object[]
+  features: Features
+  desc: string | null
   rentStart: Date | null
   rentEnd: Date | null
-  isVisible: boolean
+  isPublic: boolean
   slug: string
   agencyId: string
   agency: Agency
@@ -22,11 +30,19 @@ export interface Vehicle {
   updatedAt: Date
 }
 
-export interface VehicleSlice {
-  vehicles: Vehicle[]
-  vehicle: Vehicle
-  getVehicles: () => Promise<Vehicle[]>
-  getVehicleBySlug: (slug: string) => Promise<void>
+export interface Features {
+  id: string
+  transmission: Transmission
+  fuelType: FuelType
+  exteriorColor: String
+  interiorColor: String | null
+  seatingCapacity: number
+  packages: Packages
+  mileage: number
+  engine: String | null
+  horsepower: number | null
+  mpg: string | null
+  drivetrain: Drivetrain
 }
 
 export enum VehicleType {
@@ -39,6 +55,29 @@ export enum PriceBy {
   Week = 'Week',
   Day = 'Day',
   Hour = 'Hour',
+}
+
+export enum Transmission {
+  Automatic = 'Automatic',
+  Manual = 'Manual',
+}
+
+export enum FuelType {
+  Gasoline = 'Gasoline',
+  Diesel = 'Diesel',
+  Electric = 'Electric',
+}
+
+export enum Packages {
+  Full = 'Full',
+  Semi = 'Semi',
+  Empty = 'Empty',
+}
+
+export enum Drivetrain {
+  FrontWheelDrive = 'FrontWheelDrive',
+  RearWheelDrive = 'RearWheelDrive',
+  AllWheelDrive = 'AllWheelDrive',
 }
 
 export interface VehicleResponse extends ApiResponse {

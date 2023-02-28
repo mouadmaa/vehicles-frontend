@@ -1,14 +1,19 @@
 import { FC } from 'react'
 import Image from 'next/image'
 import { StyledVehicleImages } from '@/styles/components/vehicle/vehicle-images'
+import { useVehicleStore } from '@/store/vehicle/slice'
 
 const VehicleImages: FC = () => {
+  const { vehicle } = useVehicleStore()
+
+  const { model, coverUrl } = vehicle
+
   return (
     <StyledVehicleImages>
       <div>
         <Image
-          src="https://res.cloudinary.com/dksfz3vua/image/upload/v1673457410/VEHICLES/oknziaj12hwk4fpcii39_pfpvw6.avif"
-          alt="car"
+          src={coverUrl}
+          alt={model}
           width={900}
           height={600}
           quality={100}

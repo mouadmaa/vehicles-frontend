@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { StyledHero } from '@/styles/components/home/hero'
 import HeroSearch from '@/components/home/hero-search'
 import VehicleCard from '@/components/vehicle/vehicle-card'
+import { FuelType, PriceBy, Transmission } from '@/store/vehicle/types'
 
 const Hero: FC = () => {
   return (
@@ -53,11 +54,11 @@ const Hero: FC = () => {
       </div>
 
       <div>
-        <VehicleCard isInteractive={false} vehicle={VEHICLES[0] as any} />
+        <VehicleCard isInteractive={false} vehicle={VEHICLES[0]} />
       </div>
 
       <div>
-        <VehicleCard isInteractive={false} vehicle={VEHICLES[1] as any} />
+        <VehicleCard isInteractive={false} vehicle={VEHICLES[1]} />
       </div>
 
       <div />
@@ -67,33 +68,33 @@ const Hero: FC = () => {
 
 export default Hero
 
-const VEHICLES = [
+const VEHICLES: any = [
   {
-    name: 'Turbo GT',
-    model: '2022',
+    model: 'Turbo GT',
     brand: 'Porsche',
-    cover:
+    year: '2022',
+    coverUrl:
       'https://res.cloudinary.com/dksfz3vua/image/upload/v1673457410/VEHICLES/oknziaj12hwk4fpcii39_pfpvw6.avif',
     price: 3500,
-    priceBy: 'day',
-    details: {
-      gearbox: 'automatic',
-      fuel: 'Diesel',
-      seats: '4',
+    priceBy: PriceBy.Day,
+    features: {
+      transmission: Transmission.Automatic,
+      fuelType: FuelType.Diesel,
+      seatingCapacity: 4,
     },
   },
   {
-    name: 'Carrera',
-    model: '2023',
+    model: 'Carrera',
     brand: 'Porsche',
-    cover:
+    year: '2023',
+    coverUrl:
       'https://res.cloudinary.com/dksfz3vua/image/upload/v1673458343/VEHICLES/porsche-911-carrera-exterior_w9nfoh.png',
     price: 2450,
-    priceBy: 'hour',
-    details: {
-      gearbox: 'Manual',
-      fuel: 'Gasoline',
-      seats: '2',
+    priceBy: PriceBy.Hour,
+    features: {
+      transmission: Transmission.Manual,
+      fuelType: FuelType.Gasoline,
+      seatingCapacity: 2,
     },
   },
 ]

@@ -7,11 +7,11 @@ import 'twin.macro'
 const VehicleTitle: NextPage = () => {
   const { vehicle } = useVehicleStore()
 
-  const { name, brand, model } = vehicle
+  const { model, brand, year } = vehicle
 
   return (
     <StyledVehicleTitle>
-      <h1>{`${brand} ${name} (${model})`}</h1>
+      <h1>{`${brand} ${model} (${year})`}</h1>
       <div>
         <Button variant="Secondary">
           <ShareSvg />

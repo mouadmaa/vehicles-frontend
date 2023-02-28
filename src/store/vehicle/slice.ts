@@ -6,20 +6,26 @@ import { Vehicle, VehicleSlice, VehiclesResponse } from '@/store/vehicle/types'
 
 const vehicleUrl = '/vehicles'
 
-export const vehicleSlice: StateCreator<VehicleSlice> = set => ({
+export const vehicleSlice: StateCreator<VehicleSlice> = (set, get) => ({
   vehicles: [],
   vehicle: {} as Vehicle,
   getVehicles: async () => {
-    const { data } = await api.get<VehiclesResponse>(vehicleUrl)
-    const vehicles = data.data
-    set({ vehicles })
-    return vehicles
+    const { data: res } = await api.get<VehiclesResponse>(
+      `${vehicleUrl}?populate=features`,
+    )
+    if (res.status === 'success') {
+      set({ vehicles: res.data })
+      return res.data
+    }
+    return get().vehicles
   },
   getVehicleBySlug: async (slug: string) => {
-    const { data } = await api.get<VehiclesResponse>(
-      `${vehicleUrl}?populate=agency&searchBy=slug[${slug}]`,
+    const { data: res } = await api.get<VehiclesResponse>(
+      `${vehicleUrl}?populate=features,agency&searchBy=slug[${slug}]`,
     )
-    set({ vehicle: data.data[0] })
+    if (res.status === 'success' && res.data.length) {
+      set({ vehicle: res.data[0] })
+    }
   },
 })
 

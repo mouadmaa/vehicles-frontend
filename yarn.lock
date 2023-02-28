@@ -175,13 +175,6 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.19.0"
 
-"@babel/runtime@^7":
-  version "7.21.0"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.21.0.tgz#5b55c9d394e5fcf304909a8b00c07dc217b56673"
-  integrity sha512-xwII0//EObnq89Ji5AKYQaRYiW/nZ3llSv29d49IuxPhKbtJoLP+9QUUZ4nVragQVtaVGeZrpB+ZtG/Pdy/POw==
-  dependencies:
-    regenerator-runtime "^0.13.11"
-
 "@babel/runtime@^7.12.5", "@babel/runtime@^7.20.7":
   version "7.20.13"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.20.13.tgz#7055ab8a7cff2b8f6058bf6ae45ff84ad2aded4b"
@@ -3085,13 +3078,6 @@ yocto-queue@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
-
-zustand-utils@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/zustand-utils/-/zustand-utils-1.1.2.tgz#549785a7b4c932de378980d8d76241373ed68c67"
-  integrity sha512-6EZfFDy+b6IionHLE8lvWVPEqiqUuxviAdsc5ZsIN/G6RH8Ej2Eg27w3gmrvCT7FenXAJMk+B3f5/qmRqQYHWw==
-  dependencies:
-    "@babel/runtime" "^7"
 
 zustand@^4.3.3:
   version "4.3.3"

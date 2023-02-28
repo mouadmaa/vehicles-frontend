@@ -21,7 +21,7 @@ const VehicleCard: FC<VehicleCardProps> = props => {
     await router.push(`/search/${vehicle.slug}`)
   }
 
-  const { name, model, brand, price, priceBy, details } = vehicle
+  const { model, brand, year, price, priceBy, coverUrl, features } = vehicle
 
   return (
     <StyledVehicleCard
@@ -31,10 +31,8 @@ const VehicleCard: FC<VehicleCardProps> = props => {
     >
       <div>
         <Image
-          src={
-            'https://res.cloudinary.com/dksfz3vua/image/upload/v1673457410/VEHICLES/oknziaj12hwk4fpcii39_pfpvw6.avif'
-          }
-          alt={name}
+          src={coverUrl}
+          alt={model}
           width={320}
           height={192}
           quality={100}
@@ -58,23 +56,23 @@ const VehicleCard: FC<VehicleCardProps> = props => {
             <span>/{priceBy}</span>
           </div>
 
-          <span>{`${brand} ${name} (${model})`}</span>
+          <span>{`${brand} ${model} (${year})`}</span>
         </div>
 
         <div>
           <div>
             <GearboxSvg />
-            <span>{details.gearbox}</span>
+            <span>{features.transmission}</span>
           </div>
 
           <div>
             <FuelSvg />
-            <span>{details.fuel}</span>
+            <span>{features.fuelType}</span>
           </div>
 
           <div>
             <SeatSvg />
-            <span>{details.seats}</span>
+            <span>{features.seatingCapacity}</span>
           </div>
         </div>
       </div>
