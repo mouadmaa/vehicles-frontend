@@ -1,12 +1,18 @@
 import { FC, Fragment, useEffect, useRef, useState } from 'react'
+import { useRouter } from 'next/router'
+import { Open_Sans } from '@next/font/google'
 import Logo from '@/layout/header/logo'
 import Nav from '@/layout/header/nav'
 import Sign from '@/layout/header/sign'
 import Burger from '@/layout/header/burger'
-import { StyledHeader } from '@/styles/layout/header/header'
 import Menu from '@/layout/header/menu'
 import Backdrop from '@/components/ui/backdrop'
-import { useRouter } from 'next/router'
+import { StyledHeader } from '@/styles/layout/header/header'
+
+const openSans = Open_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 const Header: FC = () => {
   const router = useRouter()
@@ -21,7 +27,7 @@ const Header: FC = () => {
 
   return (
     <Fragment>
-      <StyledHeader ref={headerRef}>
+      <StyledHeader ref={headerRef} className={openSans.className}>
         <div>
           <Logo />
           <Nav />
