@@ -3,9 +3,9 @@ import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import VehicleTitle from '@/components/vehicle/vehicle-title'
 import VehicleImages from '@/components/vehicle/vehicle-images'
 import VehicleFeatures from '@/components/vehicle/vehicle-features'
-import { StyledVehicle } from '@/styles/components/pages/search/StyledVehicle'
+import { StyledVehicle } from '@/styles/components/pages/search/vehicle'
 import VehicleDesc from '@/components/vehicle/vehicle-desc'
-import AgencyInfo from '@/components/vehicle/agency-info'
+import VehicleAgency from '@/components/vehicle/vehicle-agency'
 import VehicleOrder from '@/components/vehicle/vehicle-order'
 import { initializeStore } from '@/store/store'
 import 'twin.macro'
@@ -20,12 +20,12 @@ const Vehicle: NextPage = () => {
           <VehicleImages />
           <VehicleFeatures />
           <VehicleDesc />
-          <AgencyInfo inMainContent />
+          <VehicleAgency inMainContent />
           <section tw="h-screen" />
         </div>
 
         <div>
-          <AgencyInfo />
+          <VehicleAgency />
           <VehicleOrder />
         </div>
       </StyledVehicle>

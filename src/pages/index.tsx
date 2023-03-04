@@ -1,14 +1,14 @@
 import { Fragment } from 'react'
 import { GetServerSideProps, NextPage } from 'next'
 import Hero from '@/components/home/hero'
-import RecommendedVehicles from '@/components/home/recommended-vehicles'
+import HomeVehicles from '@/components/home/home-vehicles'
 import { initializeStore } from '@/store/store'
 
 const Home: NextPage = () => {
   return (
     <Fragment>
       <Hero />
-      <RecommendedVehicles />
+      <HomeVehicles />
     </Fragment>
   )
 }

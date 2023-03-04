@@ -4,16 +4,14 @@ interface StyledAgencyInfoProps {
   inMainContent: boolean
 }
 
-export const StyledAgencyInfo = styled.section(
+export const StyledVehicleAgency = styled.section(
   ({ inMainContent }: StyledAgencyInfoProps) => [
     tw`space-y-4 rounded-lg border-2 p-4 shadow-sm`,
     css`
       > div:first-child {
         ${tw`flex h-14 cursor-pointer gap-x-3`}
-
         > div:first-child {
           ${tw`h-full w-24`}
-
           img {
             ${tw`h-full w-full rounded-md object-cover`}
           }

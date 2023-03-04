@@ -1,28 +1,18 @@
 import { GetServerSideProps, NextPage } from 'next'
-import { StyledSearch } from '@/styles/components/pages/search/StyledSearch'
-import VehicleCard from '@/components/vehicle/vehicle-card'
-import { useVehicleStore } from '@/store/vehicle/slice'
+import { StyledSearch } from '@/styles/components/pages/search/search'
 import { initializeStore } from '@/store/store'
-import { Pagination } from '@nextui-org/react'
+import SearchInput from '@/components/search/search-input'
+import SearchVehicles from '@/components/search/search-vehicles'
+import SearchPagination from '@/components/search/search-pagination'
 import 'twin.macro'
 
 const Search: NextPage = () => {
-  const { vehicles, pagination } = useVehicleStore()
-
   return (
     <StyledSearch>
       <div>
-        <section>
-          {vehicles.map(vehicle => (
-            <VehicleCard key={vehicle.id} vehicle={vehicle} />
-          ))}
-        </section>
-        <section>
-          <Pagination
-            initialPage={pagination.currentPage}
-            total={pagination.lastPage}
-          />
-        </section>
+        <SearchInput />
+        <SearchVehicles />
+        <SearchPagination />
         <section tw="h-screen" />
       </div>
 

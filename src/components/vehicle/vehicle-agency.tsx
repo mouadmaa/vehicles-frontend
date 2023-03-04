@@ -2,7 +2,7 @@ import { FC } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import Button from '@/components/ui/button'
-import { StyledAgencyInfo } from '@/styles/components/vehicle/agency-info'
+import { StyledVehicleAgency } from '@/styles/components/vehicle/vehicle-agency'
 import { useVehicleStore } from '@/store/vehicle/slice'
 import 'twin.macro'
 
@@ -10,7 +10,7 @@ interface AgencyInfoProps {
   inMainContent?: boolean
 }
 
-const AgencyInfo: FC<AgencyInfoProps> = props => {
+const VehicleAgency: FC<AgencyInfoProps> = props => {
   const { inMainContent = false } = props
 
   const router = useRouter()
@@ -25,7 +25,7 @@ const AgencyInfo: FC<AgencyInfoProps> = props => {
   } = vehicle
 
   return (
-    <StyledAgencyInfo inMainContent={inMainContent}>
+    <StyledVehicleAgency inMainContent={inMainContent}>
       <div className="group" onClick={handleClick}>
         <div>
           <Image
@@ -51,11 +51,11 @@ const AgencyInfo: FC<AgencyInfoProps> = props => {
           <span>Message</span>
         </Button>
       </div>
-    </StyledAgencyInfo>
+    </StyledVehicleAgency>
   )
 }
 
-export default AgencyInfo
+export default VehicleAgency
 
 const PhoneSvg = () => (
   <svg

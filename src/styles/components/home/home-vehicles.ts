@@ -1,14 +1,12 @@
 import tw, { css, styled } from 'twin.macro'
 
-export const StyledRecommendedVehicles = styled.section(() => [
+export const StyledHomeVehicles = styled.section(() => [
   tw`py-16`,
   css`
     > div:nth-child(1) {
       ${tw`md:flex justify-between items-center`}
-
       > div:first-child {
         ${tw`space-y-1`}
-
         h2 {
           ${tw`text-center md:text-left font-semibold text-gray-800`}
         }
