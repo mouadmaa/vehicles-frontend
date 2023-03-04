@@ -24,12 +24,14 @@ export default api
 
 export interface ApiResponse {
   status: 'success' | 'fail' | 'error'
-  meta: {
-    total: number
-    lastPage: number
-    currentPage: number
-    perPage: number
-    prev: number | null
-    next: number | null
-  }
+  meta: MetadataApiResponse
+}
+
+export interface MetadataApiResponse {
+  total: number
+  lastPage: number
+  currentPage: number
+  perPage: number
+  prev: number | null
+  next: number | null
 }

@@ -2,6 +2,8 @@ import { Fragment } from 'react'
 import { createGlobalStyle } from 'styled-components'
 import tw, { GlobalStyles as BaseStyles } from 'twin.macro'
 
+export const PrimaryColor = '#EF233C'
+
 const CustomStyles = createGlobalStyle({
   html: {
     ...tw`scroll-smooth`,
@@ -48,6 +50,11 @@ const CustomStyles = createGlobalStyle({
 })
 
 const CustomCssStyles = createGlobalStyle`
+  *, ::before, ::after {
+    --nextui-colors-primary: ${PrimaryColor};
+    --nextui-colors-primaryShadow: ${PrimaryColor};
+  }
+
   main > * {
     max-width: 1536px;
     margin: 0 auto;
