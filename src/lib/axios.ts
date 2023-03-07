@@ -1,13 +1,13 @@
 import axios, { AxiosHeaders } from 'axios'
 
-const BACKEND_API_URL = process.env.BACKEND_API_URL
+const BACKEND_API_URL = process.env.NEXT_PUBLIC_BACKEND_API_URL
 
 const api = axios.create({
   baseURL: `${BACKEND_API_URL}`,
 })
 
 const errorHandler = (error: any) => {
-  console.error('An Error Occurs: ', error.response.data)
+  console.error('An Error Occurs: ', error.response?.data)
   return Promise.reject(error)
 }
 

@@ -1,24 +1,38 @@
-import { StateCreator } from 'zustand'
+import { GetState, SetState, StoreApi } from 'zustand'
 import { shallow } from 'zustand/shallow'
 import api, { MetadataApiResponse } from '@/lib/axios'
 import { useStore } from '@/store/store'
-import { Vehicle, VehicleSlice, VehiclesResponse } from '@/store/vehicle/types'
+import {
+  Vehicle,
+  VehicleActions,
+  VehicleSlice,
+  VehiclesResponse,
+  VehicleState,
+} from '@/store/vehicle/types'
 
 const vehicleUrl = '/vehicles'
 
-export const vehicleSlice: StateCreator<VehicleSlice> = (set, get) => ({
+export const vehicleState: VehicleState = {
   vehicles: [],
   vehicle: {} as Vehicle,
   pagination: {} as MetadataApiResponse,
-  getVehicles: async () => {
+  loadingVehicles: false,
+}
+
+export const vehicleActions = (
+  set: SetState<VehicleState>,
+  _get: GetState<VehicleState>,
+  _store: StoreApi<VehicleState>,
+): VehicleActions => ({
+  getVehicles: async (search?: string) => {
+    set({ loadingVehicles: true })
     const { data: res } = await api.get<VehiclesResponse>(
-      `${vehicleUrl}?populate=features`,
+      `${vehicleUrl}?populate=features${
+        search ? `&searchBy=model[${search}]` : ''
+      }`,
     )
-    if (res.status === 'success') {
-      set({ vehicles: res.data, pagination: res.meta })
-      return res.data
-    }
-    return get().vehicles
+    set({ vehicles: res.data, pagination: res.meta, loadingVehicles: false })
+    return res.data
   },
   getVehicleBySlug: async (slug: string) => {
     const { data: res } = await api.get<VehiclesResponse>(
@@ -31,4 +45,14 @@ export const vehicleSlice: StateCreator<VehicleSlice> = (set, get) => ({
 })
 
 export const useVehicleStore = (): VehicleSlice =>
-  useStore(state => state, shallow)
+  useStore(
+    state => ({
+      vehicles: state.vehicles,
+      vehicle: state.vehicle,
+      pagination: state.pagination,
+      loadingVehicles: state.loadingVehicles,
+      getVehicles: state.getVehicles,
+      getVehicleBySlug: state.getVehicleBySlug,
+    }),
+    shallow,
+  )

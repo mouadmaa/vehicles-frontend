@@ -1,13 +1,19 @@
 import { ApiResponse, MetadataApiResponse } from '@/lib/axios'
 import { Agency } from '@/store/agency/types'
 
-export interface VehicleSlice {
+export interface VehicleState {
   vehicles: Vehicle[]
   vehicle: Vehicle
   pagination: MetadataApiResponse
-  getVehicles: () => Promise<Vehicle[]>
+  loadingVehicles: boolean
+}
+
+export interface VehicleActions {
+  getVehicles: (search?: string) => Promise<Vehicle[]>
   getVehicleBySlug: (slug: string) => Promise<void>
 }
+
+export interface VehicleSlice extends VehicleState, VehicleActions {}
 
 export interface Vehicle {
   id: string

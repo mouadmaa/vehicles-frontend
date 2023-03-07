@@ -1,9 +1,9 @@
 import { createContext, useContext, useMemo } from 'react'
 import { create, StoreApi, UseBoundStore } from 'zustand'
-import { vehicleSlice } from '@/store/vehicle/slice'
+import { vehicleActions, vehicleState } from '@/store/vehicle/slice'
 import { VehicleSlice } from '@/store/vehicle/types'
 
-type StoreState = VehicleSlice
+export interface StoreState extends VehicleSlice {}
 
 let store: UseBoundStore<StoreApi<StoreState>> | undefined
 
@@ -20,8 +20,9 @@ export const useStore = <StoreState>(
 
 const initStore = (preloadedState = {}) => {
   return create<StoreState>((...params) => ({
-    ...vehicleSlice(...params),
+    ...vehicleState,
     ...preloadedState,
+    ...vehicleActions(...params),
   }))
 }
 
