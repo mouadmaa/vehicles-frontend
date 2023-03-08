@@ -2,10 +2,10 @@ import { ChangeEvent, FC, useState } from 'react'
 import { FormElement, Input } from '@nextui-org/react'
 import { PrimaryColor } from '@/styles/GlobalStyles'
 import { StyledSearchInput } from '@/styles/components/search/search-input'
-import { useVehicleStore } from '@/store/vehicle/slice'
+import { useStore } from '@/store/store'
 
 const SearchInput: FC = () => {
-  const { getVehicles } = useVehicleStore()
+  const getVehicles = useStore(state => state.getVehicles)
   const [search, setSearch] = useState('')
 
   const handleChange = async ({

@@ -1,10 +1,10 @@
-import { ApiResponse, MetadataApiResponse } from '@/lib/axios'
+import { ApiResponse, PaginationResponse } from '@/lib/axios'
 import { Agency } from '@/store/agency/types'
 
 export interface VehicleState {
   vehicles: Vehicle[]
   vehicle: Vehicle
-  pagination: MetadataApiResponse
+  pagination: PaginationResponse
   loadingVehicles: boolean
 }
 

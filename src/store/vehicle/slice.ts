@@ -1,23 +1,20 @@
 import { GetState, SetState, StoreApi } from 'zustand'
-import { shallow } from 'zustand/shallow'
-import api, { MetadataApiResponse } from '@/lib/axios'
-import { useStore } from '@/store/store'
+import api, { PaginationResponse } from '@/lib/axios'
 import {
   Vehicle,
   VehicleActions,
-  VehicleSlice,
   VehiclesResponse,
   VehicleState,
 } from '@/store/vehicle/types'
 
 const vehicleUrl = '/vehicles'
 
-export const vehicleState: VehicleState = {
+export const vehicleState = (): VehicleState => ({
   vehicles: [],
   vehicle: {} as Vehicle,
-  pagination: {} as MetadataApiResponse,
+  pagination: {} as PaginationResponse,
   loadingVehicles: false,
-}
+})
 
 export const vehicleActions = (
   set: SetState<VehicleState>,
@@ -43,16 +40,3 @@ export const vehicleActions = (
     }
   },
 })
-
-export const useVehicleStore = (): VehicleSlice =>
-  useStore(
-    state => ({
-      vehicles: state.vehicles,
-      vehicle: state.vehicle,
-      pagination: state.pagination,
-      loadingVehicles: state.loadingVehicles,
-      getVehicles: state.getVehicles,
-      getVehicleBySlug: state.getVehicleBySlug,
-    }),
-    shallow,
-  )

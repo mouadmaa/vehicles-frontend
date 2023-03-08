@@ -1,9 +1,9 @@
 import { FC, Fragment, useEffect, useState } from 'react'
 import { StyledVehicleDesc } from '@/styles/components/vehicle/vehicle-desc'
-import { useVehicleStore } from '@/store/vehicle/slice'
+import { useStore } from '@/store/store'
 
 const VehicleDesc: FC = () => {
-  const { vehicle } = useVehicleStore()
+  const vehicle = useStore(state => state.vehicle)
   const [isServer, setIsServer] = useState(true)
 
   useEffect(() => {

@@ -24,10 +24,10 @@ export default api
 
 export interface ApiResponse {
   status: 'success' | 'fail' | 'error'
-  meta: MetadataApiResponse
+  meta: PaginationResponse
 }
 
-export interface MetadataApiResponse {
+export interface PaginationResponse {
   total: number
   lastPage: number
   currentPage: number

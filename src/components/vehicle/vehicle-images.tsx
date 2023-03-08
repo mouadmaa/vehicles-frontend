@@ -1,10 +1,10 @@
 import { FC } from 'react'
 import Image from 'next/image'
 import { StyledVehicleImages } from '@/styles/components/vehicle/vehicle-images'
-import { useVehicleStore } from '@/store/vehicle/slice'
+import { useStore } from '@/store/store'
 
 const VehicleImages: FC = () => {
-  const { vehicle } = useVehicleStore()
+  const vehicle = useStore(state => state.vehicle)
 
   const { model, coverUrl } = vehicle
 

@@ -1,10 +1,10 @@
 import { FC } from 'react'
 import { Pagination } from '@nextui-org/react'
-import { useVehicleStore } from '@/store/vehicle/slice'
 import { StyledSearchPagination } from '@/styles/components/search/search-pagination'
+import { useStore } from '@/store/store'
 
 const SearchPagination: FC = () => {
-  const { pagination } = useVehicleStore()
+  const pagination = useStore(state => state.pagination)
 
   return (
     <StyledSearchPagination>

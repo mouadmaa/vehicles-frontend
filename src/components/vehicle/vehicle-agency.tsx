@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 import Button from '@/components/ui/button'
 import { StyledVehicleAgency } from '@/styles/components/vehicle/vehicle-agency'
-import { useVehicleStore } from '@/store/vehicle/slice'
+import { useStore } from '@/store/store'
 import 'twin.macro'
 
 interface AgencyInfoProps {
@@ -14,7 +14,7 @@ const VehicleAgency: FC<AgencyInfoProps> = props => {
   const { inMainContent = false } = props
 
   const router = useRouter()
-  const { vehicle } = useVehicleStore()
+  const vehicle = useStore(state => state.vehicle)
 
   const handleClick = async () => {
     await router.push(`/agency/${vehicle.agency.slug}`)

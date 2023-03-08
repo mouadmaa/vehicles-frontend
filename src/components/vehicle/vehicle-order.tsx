@@ -1,11 +1,11 @@
 import { FC } from 'react'
 import { StyledVehicleOrder } from '@/styles/components/vehicle/vehicle-order'
 import Button from '@/components/ui/button'
-import { useVehicleStore } from '@/store/vehicle/slice'
 import { formatCurrency } from '@/utils/helpers'
+import { useStore } from '@/store/store'
 
 const VehicleOrder: FC = () => {
-  const { vehicle } = useVehicleStore()
+  const vehicle = useStore(state => state.vehicle)
 
   return (
     <StyledVehicleOrder>

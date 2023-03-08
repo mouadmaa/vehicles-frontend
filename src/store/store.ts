@@ -1,32 +1,39 @@
 import { createContext, useContext, useMemo } from 'react'
-import { create, StoreApi, UseBoundStore } from 'zustand'
+import { createStore, StoreApi, useStore as useContextStore } from 'zustand'
+import { shallow } from 'zustand/shallow'
+import { combine } from 'zustand/middleware'
 import { vehicleActions, vehicleState } from '@/store/vehicle/slice'
 import { VehicleSlice } from '@/store/vehicle/types'
 
-export interface StoreState extends VehicleSlice {}
+export interface ContextStore extends VehicleSlice {}
 
-let store: UseBoundStore<StoreApi<StoreState>> | undefined
+let store: StoreApi<ContextStore> | undefined
 
-export const StoreContext = createContext({})
+const initStore = (preloadedState = {}) =>
+  createStore<ContextStore>(
+    combine(
+      {
+        ...vehicleState(),
+        ...preloadedState,
+      },
+      (...params) => ({
+        ...vehicleActions(...params),
+      }),
+    ),
+  )
+
+export const StoreContext = createContext<StoreApi<ContextStore> | null>(null)
 export const StoreProvider = StoreContext.Provider
 
-export const useStore = <StoreState>(
-  selector: (state: StoreState) => StoreState,
-  equals?: (a: StoreState, b: StoreState) => boolean,
-): StoreState => {
-  const store = useContext(StoreContext) as UseBoundStore<StoreApi<StoreState>>
-  return store<StoreState>(selector, equals)
+export const useStore = <T>(
+  selector: (state: ContextStore) => T,
+  equalityFn: (a: T, b: T) => boolean = shallow,
+) => {
+  const store = useContext(StoreContext)!
+  return useContextStore(store, selector, equalityFn)
 }
 
-const initStore = (preloadedState = {}) => {
-  return create<StoreState>((...params) => ({
-    ...vehicleState,
-    ...preloadedState,
-    ...vehicleActions(...params),
-  }))
-}
-
-export const initializeStore = (preloadedState?: StoreState) => {
+export const initializeStore = (preloadedState?: ContextStore) => {
   let _store = store ?? initStore(preloadedState)
 
   // After navigating to a page with an initial Zustand state, merge that state
@@ -48,7 +55,7 @@ export const initializeStore = (preloadedState?: StoreState) => {
   return _store
 }
 
-export function useCreateStore(initialState: StoreState | string) {
+export const useCreateStore = (initialState: ContextStore | string) => {
   const state =
     typeof initialState === 'string' ? JSON.parse(initialState) : initialState
   return useMemo(() => initializeStore(state), [state])

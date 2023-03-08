@@ -2,16 +2,19 @@ import { FC } from 'react'
 import VehicleCard from '@/components/vehicle/vehicle-card'
 import { StyledSearchVehicles } from '@/styles/components/search/search-vehicles'
 import { Loading } from '@nextui-org/react'
-import { useVehicleStore } from '@/store/vehicle/slice'
+import { useStore } from '@/store/store'
 
 const SearchVehicles: FC = () => {
-  const { vehicles, loadingVehicles } = useVehicleStore()
+  const { vehicles, loading } = useStore(state => ({
+    vehicles: state.vehicles,
+    loading: state.loadingVehicles,
+  }))
 
-  if (loadingVehicles) return <Loading />
+  if (loading) return <Loading />
 
   return (
     <StyledSearchVehicles>
-      {vehicles.map((vehicle: any) => (
+      {vehicles.map(vehicle => (
         <VehicleCard key={vehicle.id} vehicle={vehicle} />
       ))}
     </StyledSearchVehicles>

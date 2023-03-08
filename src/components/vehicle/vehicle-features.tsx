@@ -1,9 +1,9 @@
 import { FC } from 'react'
 import { StyledVehicleFeatures } from '@/styles/components/vehicle/vehicle-features'
-import { useVehicleStore } from '@/store/vehicle/slice'
+import { useStore } from '@/store/store'
 
 const VehicleFeatures: FC = () => {
-  const { vehicle } = useVehicleStore()
+  const vehicle = useStore(state => state.vehicle)
 
   const { model, brand, year, features } = vehicle
 

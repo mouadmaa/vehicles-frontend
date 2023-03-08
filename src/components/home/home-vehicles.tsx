@@ -2,10 +2,10 @@ import { FC } from 'react'
 import Button from '@/components/ui/button'
 import VehicleCard from '@/components/vehicle/vehicle-card'
 import { StyledHomeVehicles } from '@/styles/components/home/home-vehicles'
-import { useVehicleStore } from '@/store/vehicle/slice'
+import { useStore } from '@/store/store'
 
 const HomeVehicles: FC = () => {
-  const { vehicles } = useVehicleStore()
+  const vehicles = useStore(state => state.vehicles)
 
   return (
     <StyledHomeVehicles>
