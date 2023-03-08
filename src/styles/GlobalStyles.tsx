@@ -59,6 +59,15 @@ const CustomCssStyles = createGlobalStyle`
     max-width: 1536px;
     margin: 0 auto;
   }
+
+  /* NProgress */
+  #nprogress > div.bar {
+    background-color: ${PrimaryColor};
+  }
+  #nprogress > div.spinner > div {
+    border-top-color: ${PrimaryColor};
+    border-left-color: ${PrimaryColor};
+  }
 `
 
 const GlobalStyles = () => (

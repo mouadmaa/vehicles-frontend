@@ -1,6 +1,7 @@
 import { FC, Fragment, useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
 import { Open_Sans } from '@next/font/google'
+import dynamic from 'next/dynamic'
 import Logo from '@/layout/header/logo'
 import Nav from '@/layout/header/nav'
 import Sign from '@/layout/header/sign'
@@ -27,6 +28,7 @@ const Header: FC = () => {
 
   return (
     <Fragment>
+      <TopProgressBar />
       <StyledHeader ref={headerRef} className={openSans.className}>
         <div>
           <Logo />
@@ -42,6 +44,13 @@ const Header: FC = () => {
 }
 
 export default Header
+
+const TopProgressBar = dynamic(
+  () => {
+    return import('./progress')
+  },
+  { ssr: false },
+)
 
 export const LINKS = [
   {
