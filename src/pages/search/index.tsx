@@ -5,6 +5,7 @@ import SearchInput from '@/components/search/search-input'
 import SearchVehicles from '@/components/search/search-vehicles'
 import SearchPagination from '@/components/search/search-pagination'
 import 'twin.macro'
+import SearchFilter from '@/components/search/search-filter'
 
 const Search: NextPage = () => {
   return (
@@ -16,7 +17,7 @@ const Search: NextPage = () => {
         <section tw="h-screen" />
       </div>
 
-      <div>Filter</div>
+      <SearchFilter />
     </StyledSearch>
   )
 }

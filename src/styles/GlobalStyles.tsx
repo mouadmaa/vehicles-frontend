@@ -9,7 +9,7 @@ const CustomStyles = createGlobalStyle({
     ...tw`scroll-smooth`,
   },
   body: {
-    ...tw`text-black overflow-x-hidden`,
+    ...tw`text-gray-900 overflow-x-hidden`,
   },
   header: {
     ...tw`mx-auto max-w-[1920px]`,
