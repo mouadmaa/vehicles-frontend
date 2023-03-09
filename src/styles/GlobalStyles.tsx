@@ -3,6 +3,7 @@ import { createGlobalStyle } from 'styled-components'
 import tw, { GlobalStyles as BaseStyles } from 'twin.macro'
 
 export const PrimaryColor = '#EF233C'
+export const ShadeColor90 = '#F4D5D9'
 
 const CustomStyles = createGlobalStyle({
   html: {
@@ -67,6 +68,20 @@ const CustomCssStyles = createGlobalStyle`
   #nprogress > div.spinner > div {
     border-top-color: ${PrimaryColor};
     border-left-color: ${PrimaryColor};
+  }
+  
+  /* Input range */
+  .input-range__track--active {
+    background-color: ${ShadeColor90};
+  }
+  .input-range__slider {
+    background-color: ${ShadeColor90};
+    border-color: ${PrimaryColor};
+    border-width: 2px;
+  }
+  .input-range__label-container {
+    transform: translateY(36px);
+    display: inline-block;
   }
 `
 

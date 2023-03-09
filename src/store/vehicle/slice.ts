@@ -14,22 +14,32 @@ export const vehicleState = (): VehicleState => ({
   vehicle: {} as Vehicle,
   pagination: {} as PaginationResponse,
   loadingVehicles: false,
+  filter: {},
 })
 
 export const vehicleActions = (
   set: SetState<VehicleState>,
-  _get: GetState<VehicleState>,
+  get: GetState<VehicleState>,
   _store: StoreApi<VehicleState>,
 ): VehicleActions => ({
-  getVehicles: async (search?: string) => {
+  getVehicles: async () => {
     set({ loadingVehicles: true })
     const { data: res } = await api.get<VehiclesResponse>(
-      `${vehicleUrl}?populate=features${
-        search ? `&searchBy=model[${search}]` : ''
-      }`,
+      `${vehicleUrl}?populate=features`,
     )
     set({ vehicles: res.data, pagination: res.meta, loadingVehicles: false })
     return res.data
+  },
+  getSearchVehicle: async () => {
+    const { filter } = get()
+    if (!filter) return
+    console.log('search')
+    // set({ loadingVehicles: true })
+    // const { data: res } = await api.post<VehiclesResponse>(
+    //   `${vehicleUrl}/search`,
+    //   filter
+    // )
+    // set({ vehicles: res.data, pagination: res.meta, loadingVehicles: false })
   },
   getVehicleBySlug: async (slug: string) => {
     const { data: res } = await api.get<VehiclesResponse>(

@@ -12,7 +12,7 @@ export const StyledButton = styled.button(({ variant }: StyledButtonProps) => [
   variant === 'Secondary' &&
     tw`border-shade-92 text-primary-default border-2 hover:border-primary-default hover:bg-primary-default hover:text-white`,
   variant === 'Tertiary' &&
-    tw`bg-shade-96 text-primary-default hover:border-primary-default hover:bg-primary-default hover:text-white`,
+    tw`bg-shade-98 text-primary-default hover:border-primary-default hover:bg-primary-default hover:text-white`,
   css`
     svg {
       ${tw`h-5 w-5 fill-transparent stroke-primary-default transition-all duration-300`}

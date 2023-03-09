@@ -11,14 +11,13 @@ interface ButtonGroupProps {
   }[]
   selected: string
   setSelected: (selected: string) => void
-  width?: 'full' | 'fit'
 }
 
 const ButtonGroup: FC<ButtonGroupProps> = props => {
-  const { list, selected, setSelected, width = 'full' } = props
+  const { list, selected, setSelected } = props
 
   return (
-    <StyledButtonGroup width={width}>
+    <StyledButtonGroup>
       {list.map(item => (
         <StyledButtonGroupItem
           key={item.value}

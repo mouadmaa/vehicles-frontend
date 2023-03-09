@@ -5,20 +5,20 @@ import { StyledSearchInput } from '@/styles/components/search/search-input'
 import { useStore } from '@/store/store'
 
 const SearchInput: FC = () => {
-  const getVehicles = useStore(state => state.getVehicles)
-  const [search, setSearch] = useState('')
+  const getSearchVehicle = useStore(state => state.getSearchVehicle)
+  const [searchInput, setSearchInput] = useState('')
 
   const handleChange = async ({
     target: { value },
   }: ChangeEvent<FormElement>) => {
-    setSearch(value)
-    await getVehicles(value)
+    setSearchInput(value)
+    await getSearchVehicle()
   }
 
   return (
     <StyledSearchInput>
       <Input
-        value={search}
+        value={searchInput}
         onChange={handleChange}
         color="primary"
         label="Search"

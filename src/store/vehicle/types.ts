@@ -6,10 +6,12 @@ export interface VehicleState {
   vehicle: Vehicle
   pagination: PaginationResponse
   loadingVehicles: boolean
+  filter: any
 }
 
 export interface VehicleActions {
-  getVehicles: (search?: string) => Promise<Vehicle[]>
+  getVehicles: () => Promise<Vehicle[]>
+  getSearchVehicle: () => Promise<void>
   getVehicleBySlug: (slug: string) => Promise<void>
 }
 

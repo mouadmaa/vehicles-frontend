@@ -4,8 +4,8 @@ import { initializeStore } from '@/store/store'
 import SearchInput from '@/components/search/search-input'
 import SearchVehicles from '@/components/search/search-vehicles'
 import SearchPagination from '@/components/search/search-pagination'
-import 'twin.macro'
 import SearchFilter from '@/components/search/search-filter'
+import 'twin.macro'
 
 const Search: NextPage = () => {
   return (
