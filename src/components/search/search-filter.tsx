@@ -7,16 +7,16 @@ import 'react-input-range/lib/css/index.css'
 import { useStore } from '@/store/store'
 
 const SearchFilter: FC = () => {
-  const getSearchVehicle = useStore(state => state.getSearchVehicle)
+  const getVehicles = useStore(state => state.getVehicles)
 
   const [category, setCategory] = useState('all')
   const [price, setPrice] = useState<Range>({ min: 50, max: 900000 })
 
   useEffect(() => {
     ;(async () => {
-      await getSearchVehicle()
+      // await getVehicles()
     })()
-  }, [getSearchVehicle, category, price])
+  }, [getVehicles, category, price])
 
   const priceRangeLabel = (value: number) => {
     return value >= price.min ? `${value} DH` : `${price.min} DH`

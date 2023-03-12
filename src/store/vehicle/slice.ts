@@ -14,7 +14,9 @@ export const vehicleState = (): VehicleState => ({
   vehicle: {} as Vehicle,
   pagination: {} as PaginationResponse,
   loadingVehicles: false,
-  filter: {},
+  filter: {
+    name: '',
+  },
 })
 
 export const vehicleActions = (
@@ -24,26 +26,16 @@ export const vehicleActions = (
 ): VehicleActions => ({
   getVehicles: async () => {
     set({ loadingVehicles: true })
+
     const { data: res } = await api.get<VehiclesResponse>(
       `${vehicleUrl}?populate=features`,
     )
     set({ vehicles: res.data, pagination: res.meta, loadingVehicles: false })
     return res.data
   },
-  getSearchVehicle: async () => {
-    const { filter } = get()
-    if (!filter) return
-    console.log('search')
-    // set({ loadingVehicles: true })
-    // const { data: res } = await api.post<VehiclesResponse>(
-    //   `${vehicleUrl}/search`,
-    //   filter
-    // )
-    // set({ vehicles: res.data, pagination: res.meta, loadingVehicles: false })
-  },
   getVehicleBySlug: async (slug: string) => {
     const { data: res } = await api.get<VehiclesResponse>(
-      `${vehicleUrl}?populate=features,agency&searchBy=slug[${slug}]`,
+      `${vehicleUrl}?populate=features,agency&search=slug[${slug}]`,
     )
     if (res.status === 'success' && res.data.length) {
       set({ vehicle: res.data[0] })

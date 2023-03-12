@@ -11,7 +11,6 @@ export interface VehicleState {
 
 export interface VehicleActions {
   getVehicles: () => Promise<Vehicle[]>
-  getSearchVehicle: () => Promise<void>
   getVehicleBySlug: (slug: string) => Promise<void>
 }
 
