@@ -1,25 +1,27 @@
-import { ChangeEvent, FC, useState } from 'react'
-import { FormElement, Input } from '@nextui-org/react'
+import { FC, useEffect, useState } from 'react'
+import { Input } from '@nextui-org/react'
 import { PrimaryColor } from '@/styles/GlobalStyles'
 import { StyledSearchInput } from '@/styles/components/search/search-input'
 import { useStore } from '@/store/store'
+import { useDebounce } from '@/hooks/debounce'
 
 const SearchInput: FC = () => {
   const getVehicles = useStore(state => state.getVehicles)
-  const [searchInput, setSearchInput] = useState('')
+  const [searchTerm, setSearchTerm] = useState('')
 
-  const handleChange = async ({
-    target: { value },
-  }: ChangeEvent<FormElement>) => {
-    setSearchInput(value)
-    await getVehicles()
-  }
+  const debouncedSearchTerm: string = useDebounce<string>(searchTerm, 600)
+
+  useEffect(() => {
+    ;(async () => {
+      await getVehicles({ name: debouncedSearchTerm })
+    })()
+  }, [getVehicles, debouncedSearchTerm])
 
   return (
     <StyledSearchInput>
       <Input
-        value={searchInput}
-        onChange={handleChange}
+        value={searchTerm}
+        onChange={event => setSearchTerm(event.target.value)}
         color="primary"
         label="Search"
         placeholder="Search"

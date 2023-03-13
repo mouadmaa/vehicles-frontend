@@ -6,11 +6,11 @@ export interface VehicleState {
   vehicle: Vehicle
   pagination: PaginationResponse
   loadingVehicles: boolean
-  filter: any
+  filter: VehicleFilter
 }
 
 export interface VehicleActions {
-  getVehicles: () => Promise<Vehicle[]>
+  getVehicles: (filter?: VehicleFilter) => Promise<Vehicle[]>
   getVehicleBySlug: (slug: string) => Promise<void>
 }
 
@@ -86,6 +86,10 @@ export enum Drivetrain {
   FrontWheelDrive = 'FrontWheelDrive',
   RearWheelDrive = 'RearWheelDrive',
   AllWheelDrive = 'AllWheelDrive',
+}
+
+export interface VehicleFilter {
+  name: string
 }
 
 export interface VehicleResponse extends ApiResponse {

@@ -3,6 +3,7 @@ import api, { PaginationResponse } from '@/lib/axios'
 import {
   Vehicle,
   VehicleActions,
+  VehicleFilter,
   VehiclesResponse,
   VehicleState,
 } from '@/store/vehicle/types'
@@ -24,11 +25,26 @@ export const vehicleActions = (
   get: GetState<VehicleState>,
   _store: StoreApi<VehicleState>,
 ): VehicleActions => ({
-  getVehicles: async () => {
-    set({ loadingVehicles: true })
+  getVehicles: async (newFilter?: VehicleFilter) => {
+    // Filter
+    const filter: any = { ...get().filter, ...newFilter }
+    let searchQuery = ''
+    if (filter.name) {
+      filter.name.split(' ').forEach((str: string) => {
+        if (!str) return
+        searchQuery += `model[${str}],`
+        searchQuery += `brand[${str}],`
+        searchQuery += `year[${str}],`
+      })
+    }
+    searchQuery = searchQuery.substring(0, searchQuery.length - 1)
 
+    // Send Request
+    set({ filter, loadingVehicles: true })
     const { data: res } = await api.get<VehiclesResponse>(
-      `${vehicleUrl}?populate=features`,
+      `${vehicleUrl}?populate=features${
+        searchQuery && `&search=${searchQuery}`
+      }`,
     )
     set({ vehicles: res.data, pagination: res.meta, loadingVehicles: false })
     return res.data
